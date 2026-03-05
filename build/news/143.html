@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla's AI-Powered Energy Management System Saves 30% Grid - AI前沿速递</title>
+    <meta name="description" content="特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tesla's AI-Powered Energy Management System Saves 30% Grid">
+    <meta property="og:description" content="特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...">
+    <meta property="og:url" content="https://aihcn.com/news/143">
+    <meta property="article:published_time" content="2026-03-05T15:00:00">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tesla's AI-Powered Energy Management System Saves 30% Grid">
+    <meta name="twitter:description" content="特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...">
+    <meta name="twitter:url" content="https://aihcn.com/news/143">
+    
+    <link rel="canonical" href="https://aihcn.com/news/143">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            background: #f5f5f7;
+            color: #1D1D1F;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 返回按钮 */
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #007AFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .back-button:hover {
+            background: #5856D6;
+            transform: translateY(-2px);
+        }
+        
+        /* 文章头部 */
+        .article-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .article-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 文章内容 */
+        .article-content {
+            background: white;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .article-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .source-link {
+            display: block;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #E5E5E5;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .source-link:hover {
+            color: #007AFF;
+        }
+        
+        /* 点赞和分享 */
+        .actions {
+            background: white;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .like-section {
+            margin-bottom: 30px;
+        }
+        
+        .like-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .like-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .like-button.liked {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+        
+        .like-count {
+            font-weight: 600;
+        }
+        
+        .share-section {
+            border-top: 2px solid #E5E5E5;
+            padding-top: 30px;
+        }
+        
+        .share-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: 2px solid #E5E5E5;
+            border-radius: 25px;
+            background: white;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .share-btn:hover {
+            border-color: #007AFF;
+            color: #007AFF;
+            transform: translateY(-2px);
+        }
+        
+        .share-btn.twitter:hover {
+            border-color: #1DA1F2;
+            color: #1DA1F2;
+        }
+        
+        .share-btn.facebook:hover {
+            border-color: #1877F2;
+            color: #1877F2;
+        }
+        
+        .share-btn.linkedin:hover {
+            border-color: #0A66C2;
+            color: #0A66C2;
+        }
+        
+        .share-btn.weibo:hover {
+            border-color: #E6162D;
+            color: #E6162D;
+        }
+        
+        .share-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* 导航 */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #007AFF;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link.disabled {
+            background: #E5E5E5;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .nav-link.disabled:hover {
+            transform: none;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #1D1D1F;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 1.5rem;
+            }
+            
+            .article-content,
+            .actions {
+                padding: 25px;
+            }
+            
+            .share-buttons {
+                gap: 10px;
+            }
+            
+            .share-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 返回首页 -->
+        <a href="/" class="back-button">← 返回首页</a>
+        
+        <!-- 文章头部 -->
+        <header class="article-header">
+            <h1 class="article-title">Tesla's AI-Powered Energy Management System Saves 30% Grid</h1>
+            <div class="article-meta">
+                <div class="meta-item">
+                    🕐 2026-03-05 15:00
+                </div>
+                <div class="meta-item">
+                    📰 AI前沿速递
+                </div>
+                <div class="meta-item">
+                    🔖 编号: #143
+                </div>
+            </div>
+        </header>
+        
+        <!-- 文章内容 -->
+        <main class="article-content">
+            <p class="article-description">特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。</p>
+            <a href="https://tesla.com/ai-energy-management-grid/" target="_blank" rel="noopener noreferrer" class="source-link">
+                📌 查看原文（新窗口打开）
+            </a>
+        </main>
+        
+        <!-- 点赞和分享 -->
+        <section class="actions">
+            <div class="like-section">
+                <button class="like-button" onclick="handleLike()" data-news-id="143">
+                    <span id="like-icon">❤️</span>
+                    <span id="like-text">点赞</span>
+                    <span class="like-count" id="like-count">0</span>
+                </button>
+            </div>
+            
+            <div class="share-section">
+                <h3 class="share-title">📤 分享这篇文章</h3>
+                <div class="share-buttons">
+                    <button class="share-btn twitter" onclick="shareArticle('twitter')">
+                        𝕦 Twitter
+                    </button>
+                    <button class="share-btn facebook" onclick="shareArticle('facebook')">
+                        📘 Facebook
+                    </button>
+                    <button class="share-btn linkedin" onclick="shareArticle('linkedin')">
+                        💼 LinkedIn
+                    </button>
+                    <button class="share-btn weibo" onclick="shareArticle('weibo')">
+                        🎈 微博
+                    </button>
+                    <button class="share-btn" onclick="shareArticle('copy')">
+                        🔗 复制链接
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 导航 -->
+        <nav class="navigation">
+            <a href="/news/144" class="nav-link">← 上一篇: Apple's On-Device L Enables Pr...</a>
+            <a href="/news/142" class="nav-link">下一篇: Meta AI Research Releases New ...</a>
+        </nav>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2026 AI前沿速递 | 来源于各大AI媒体</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                <a href="/" style="color: white; text-decoration: none;">返回首页</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // 点赞功能（使用localStorage）
+        const STORAGE_KEY = 'ai_news_likes';
+        
+        function getLikes() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : {};
+        }
+        
+        function saveLikes(likes) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
+        }
+        
+        function handleLike() {
+            const newsId = 143;
+            const likes = getLikes();
+            
+            if (!likes[newsId]) {
+                likes[newsId] = 0;
+            }
+            
+            const button = document.querySelector('.like-button');
+            
+            if (button.classList.contains('liked')) {
+                // 取消点赞
+                likes[newsId]--;
+                button.classList.remove('liked');
+                document.getElementById('like-text').textContent = '点赞';
+            } else {
+                // 点赞
+                likes[newsId]++;
+                button.classList.add('liked');
+                document.getElementById('like-text').textContent = '已赞';
+                
+                // 添加动画效果
+                button.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 200);
+            }
+            
+            saveLikes(likes);
+            document.getElementById('like-count').textContent = likes[newsId];
+        }
+        
+        // 初始化点赞状态
+        function initLikeButton() {
+            const newsId = 143;
+            const likes = getLikes();
+            
+            if (likes[newsId] && likes[newsId] > 0) {
+                document.querySelector('.like-button').classList.add('liked');
+                document.getElementById('like-text').textContent = '已赞';
+                document.getElementById('like-count').textContent = likes[newsId];
+            }
+        }
+        
+        // 分享功能
+        function shareArticle(platform) {
+            const shareUrl = 'https://aihcn.com/news/143';
+            const title = encodeURIComponent('Tesla's AI-Powered Energy Management System Saves 30% Grid');
+            
+            const shareUrls = {
+                'twitter': 'https://twitter.com/intent/tweet?text=' + title + '&url=' + encodeURIComponent(shareUrl),
+                'facebook': 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+                'linkedin': 'https://www.linkedin.com/shareArticle?title=' + title + '&url=' + encodeURIComponent(shareUrl),
+                'weibo': 'http://service.weibo.com/share/share.php?title=' + title + '&url=' + encodeURIComponent(shareUrl),
+                'copy': shareUrl
+            };
+            
+            if (platform === 'copy') {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('链接已复制到剪贴板！\n\n' + shareUrl);
+                }).catch(() => {
+                    alert('复制失败，请手动复制链接');
+                });
+            } else {
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+            }
+        }
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initLikeButton();
+        });
+    </script>
+</body>
+</html>

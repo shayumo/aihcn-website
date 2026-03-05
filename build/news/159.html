@@ -106,67 +106,34 @@
         .source-link {
             display: block;
             margin-top: 30px;
-            padding-top: 30px;
-            border-top: 2px solid #E5E5E5;
-            color: #666;
+            padding: 15px;
+            background: #f0f0f5;
+            border-radius: 8px;
             text-decoration: none;
+            color: #007AFF;
             font-weight: 500;
+            transition: all 0.2s;
         }
         
         .source-link:hover {
-            color: #007AFF;
+            background: #007AFF;
+            color: white;
         }
         
-        /* 点赞和分享 */
-        .actions {
+        /* 分享栏 */
+        .share-section {
             background: white;
             padding: 30px;
             margin-bottom: 40px;
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        
-        .like-section {
-            margin-bottom: 30px;
-        }
-        
-        .like-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .like-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .like-button.liked {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-        }
-        
-        .like-count {
-            font-weight: 600;
-        }
-        
-        .share-section {
-            border-top: 2px solid #E5E5E5;
-            padding-top: 30px;
         }
         
         .share-title {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 20px;
+            text-align: center;
         }
         
         .share-buttons {
@@ -176,113 +143,131 @@
             flex-wrap: wrap;
         }
         
-        .share-btn {
+        .share-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            transition: all 0.2s;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 20px;
-            border: 2px solid #E5E5E5;
-            border-radius: 25px;
-            background: white;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
         }
         
-        .share-btn:hover {
-            border-color: #007AFF;
-            color: #007AFF;
+        .share-button.twitter {
+            background: #1DA1F2;
+        }
+        
+        .share-button.facebook {
+            background: #4267B2;
+        }
+        
+        .share-button.linkedin {
+            background: #0077B5;
+        }
+        
+        .share-button.weibo {
+            background: #E6162D;
+        }
+        
+        .share-button.copy {
+            background: #343539;
+        }
+        
+        .share-button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
-        .share-btn.twitter:hover {
-            border-color: #1DA1F2;
-            color: #1DA1F2;
+        /* 点赞按钮 */
+        .like-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px 0;
         }
         
-        .share-btn.facebook:hover {
-            border-color: #1877F2;
-            color: #1877F2;
+        .like-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: 2px solid #FF6B6B;
+            background: white;
+            color: #FF6B6B;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
         }
         
-        .share-btn.linkedin:hover {
-            border-color: #0A66C2;
-            color: #0A66C2;
+        .like-button:hover {
+            background: #FF6B6B;
+            color: white;
+            transform: scale(1.05);
         }
         
-        .share-btn.weibo:hover {
-            border-color: #E6162D;
-            color: #E6162D;
+        .like-button.liked {
+            background: #FF6B6B;
+            color: white;
         }
         
-        .share-btn i {
-            font-size: 1.2rem;
+        .like-count {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
         }
         
         /* 导航 */
         .navigation {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             gap: 20px;
         }
         
         .nav-link {
             flex: 1;
-            padding: 20px;
+            padding: 15px;
             background: white;
-            text-align: center;
-            border-radius: 10px;
+            border-radius: 8px;
             text-decoration: none;
-            color: #007AFF;
-            font-weight: 500;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            color: #333;
             transition: all 0.2s;
+            text-align: center;
+            font-weight: 500;
         }
         
         .nav-link:hover {
+            background: #007AFF;
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .nav-link.disabled {
-            background: #E5E5E5;
-            color: #999;
-            cursor: not-allowed;
-        }
-        
-        .nav-link.disabled:hover {
-            transform: none;
-        }
-        
-        /* 页脚 */
-        .footer {
-            background: #1D1D1F;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
+            opacity: 0.3;
+            pointer-events: none;
         }
         
         /* 响应式 */
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .article-title {
                 font-size: 1.5rem;
             }
             
-            .article-content,
-            .actions {
-                padding: 25px;
+            .article-content {
+                padding: 20px;
             }
             
-            .share-buttons {
-                gap: 10px;
+            .share-section {
+                padding: 20px;
             }
             
-            .share-btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+            .like-section {
+                flex-direction: column;
             }
             
             .navigation {
@@ -292,166 +277,237 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 返回首页 -->
-        <a href="/" class="back-button">← 返回首页</a>
-        
-        <!-- 文章头部 -->
-        <header class="article-header">
+    <a href="/" class="back-button">← 返回首页</a>
+    
+    <div class="article-header">
+        <div class="container">
             <h1 class="article-title">OpenAI发布自定义GPT-5.3模型API</h1>
             <div class="article-meta">
-                <div class="meta-item">
-                    🕐 2026-03-05 16:00
-                </div>
-                <div class="meta-item">
-                    📰 AI前沿速递
-                </div>
-                <div class="meta-item">
-                    🔖 编号: #159
-                </div>
+                <span class="meta-item">📅 2026-03-05 16:00</span>
+                <span class="meta-item">🔖 ID: 159</span>
             </div>
-        </header>
-        
-        <!-- 文章内容 -->
-        <main class="article-content">
-            <p class="article-description">OpenAI正式推出自定义GPT-5.3模型API。开发者可以使用自己的数据微调模型，创建专用版本。API提供了完整的微调、评估和部署能力。企业可以使用自己的数据训练私有模型，完全控制数据权限。已集成到Azure、Google Cloud和AWS。</p>
-            <a href="https://openai.com/api-custom-gpt-53/" target="_blank" rel="noopener noreferrer" class="source-link">
-                📌 查看原文（新窗口打开）
-            </a>
-        </main>
-        
-        <!-- 点赞和分享 -->
-        <section class="actions">
-            <div class="like-section">
-                <button class="like-button" onclick="handleLike()" data-news-id="159">
-                    <span id="like-icon">❤️</span>
-                    <span id="like-text">点赞</span>
-                    <span class="like-count" id="like-count">0</span>
-                </button>
-            </div>
-            
-            <div class="share-section">
-                <h3 class="share-title">📤 分享这篇文章</h3>
-                <div class="share-buttons">
-                    <button class="share-btn twitter" onclick="shareArticle('twitter')">
-                        𝕦 Twitter
-                    </button>
-                    <button class="share-btn facebook" onclick="shareArticle('facebook')">
-                        📘 Facebook
-                    </button>
-                    <button class="share-btn linkedin" onclick="shareArticle('linkedin')">
-                        💼 LinkedIn
-                    </button>
-                    <button class="share-btn weibo" onclick="shareArticle('weibo')">
-                        🎈 微博
-                    </button>
-                    <button class="share-btn" onclick="shareArticle('copy')">
-                        🔗 复制链接
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- 导航 -->
-        <nav class="navigation">
-            <a href="/news/160" class="nav-link">← 上一篇: Amazon Bedrock 发布GenAI Marketp...</a>
-            <a href="/news/158" class="nav-link">下一篇: 百度发布文心大模型5参数达到5000亿...</a>
-        </nav>
-        
-        <!-- 页脚 -->
-        <footer class="footer">
-            <p>© 2026 AI前沿速递 | 来源于各大AI媒体</p>
-            <p style="margin-top: 10px; opacity: 0.8;">
-                <a href="/" style="color: white; text-decoration: none;">返回首页</a>
-            </p>
-        </footer>
+        </div>
     </div>
     
+    <div class="container">
+        <div class="article-content">
+            <p class="article-description">OpenAI正式推出自定义GPT-5.3模型API。开发者可以使用自己的数据微调模型，创建专用版本。API提供了完整的微调、评估和部署能力。企业可以使用自己的数据训练私有模型，完全控制数据权限。已集成到Azure、Google Cloud和AWS。</p>
+            
+            <a href="https://openai.com/api-custom-gpt-53/" target="_blank" rel="noopener" class="source-link">
+                🔗 查看原始文章
+            </a>
+        </div>
+        
+        <!-- 点赞功能 -->
+        <div class="like-section">
+            <button class="like-button" onclick="handleLike()" data-news-id="159">
+                <span id="like-text">点赞</span>
+            </button>
+            <span class="like-count">
+                👍 <span id="like-count">0</span>
+            </span>
+        </div>
+        
+        <!-- 分享功能 -->
+        <div class="share-section">
+            <h2 class="share-title">📤 分享文章</h2>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?text=OpenAI发布自定义GPT-5.3模型API&url=https://aihcn.com/news/159" target="_blank" rel="noopener" class="share-button twitter">
+                    𝕏 Twitter
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://aihcn.com/news/159" target="_blank" rel="noopener" class="share-button facebook">
+                    f Facebook
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?title=OpenAI发布自定义GPT-5.3模型API&url=https://aihcn.com/news/159" target="_blank" rel="noopener" class="share-button linkedin">
+                    in LinkedIn
+                </a>
+                <a href="http://service.weibo.com/share/share.php?title=OpenAI发布自定义GPT-5.3模型API&url=https://aihcn.com/news/159" target="_blank" rel="noopener" class="share-button weibo">
+                    新浪微博
+                </a>
+                <button onclick="copyLink('https://aihcn.com/news/159')" class="share-button copy">
+                    📋 复制链接
+                </button>
+            </div>
+        </div>
+        
+        <!-- 导航 -->
+        <div class="navigation">
+            <a href="/news/160" class="nav-link">← 上一篇</a>
+            <a href="/news/158" class="nav-link">下一篇 →</a>
+        </div>
+    </div>
+    
+    <!-- Worker API + localStorage备用方案 -->
     <script>
-        // 点赞功能（使用localStorage）
-        const STORAGE_KEY = 'ai_news_likes';
-        
-        function getLikes() {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            return stored ? JSON.parse(stored) : {};
-        }
-        
-        function saveLikes(likes) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
-        }
-        
-        function handleLike() {
-            const newsId = 159;
-            const likes = getLikes();
-            
-            if (!likes[newsId]) {
-                likes[newsId] = 0;
+        const WORKER_API_URL = 'https://aihcn-website.workers.dev/api';
+
+        // 获取用户ID
+        function getUserId() {
+            let userId = localStorage.getItem('aihcn_user_id');
+            if (!userId) {
+                userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('aihcn_user_id', userId);
             }
-            
+            return userId;
+        }
+
+        // 点赞功能
+        async function handleLike() {
+            const newsId = 159;
+            const userId = getUserId();
             const button = document.querySelector('.like-button');
-            
-            if (button.classList.contains('liked')) {
-                // 取消点赞
+            const countEl = document.getElementById('like-count');
+            const textEl = document.getElementById('like-text');
+
+            try {
+                button.disabled = true;
+                textEl.textContent = '⏳...';
+
+                const response = await fetch(`${WORKER_API_URL}/like`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        news_id: newsId,
+                        user_id: userId
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API调用失败: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // 更新UI
+                if (data.liked) {
+                    button.classList.add('liked');
+                    textEl.textContent = '已赞';
+                } else {
+                    button.classList.remove('liked');
+                    textEl.textContent = '点赞';
+                }
+
+                countEl.textContent = data.count || 0;
+
+            } catch (error) {
+                console.error('API调用失败，降级到localStorage:', error);
+                // 降级到localStorage
+                fallbackToLocalLike(newsId, button, countEl, textEl);
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        // 获取点赞数
+        async function getLikeCount() {
+            const newsId = 159;
+
+            try {
+                const response = await fetch(`${WORKER_API_URL}/like-count?news_id=${newsId}`);
+
+                if (!response.ok) {
+                    throw new Error(`获取点赞数失败: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.count || 0;
+            } catch (error) {
+                console.error('获取点赞数失败，使用localStorage:', error);
+                return parseInt(localStorage.getItem(`news_like_${newsId}`) || '0');
+            }
+        }
+
+        // 检查是否已点赞
+        async function checkLike() {
+            const newsId = 159;
+            const userId = getUserId();
+
+            try {
+                const response = await fetch(`${WORKER_API_URL}/check-like?news_id=${newsId}&user_id=${userId}`);
+
+                if (!response.ok) {
+                    throw new Error(`检查点赞状态失败: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.liked;
+            } catch (error) {
+                console.error('检查点赞状态失败，使用localStorage:', error);
+                return localStorage.getItem(`liked_news_${newsId}`) === 'true';
+            }
+        }
+
+        // localStorage备用方案
+        function fallbackToLocalLike(newsId, button, countEl, textEl) {
+            const likes = JSON.parse(localStorage.getItem('ai_news_likes') || '{}');
+
+            if (likes[newsId]) {
                 likes[newsId]--;
                 button.classList.remove('liked');
-                document.getElementById('like-text').textContent = '点赞';
+                textEl.textContent = '点赞';
             } else {
-                // 点赞
-                likes[newsId]++;
+                likes[newsId] = (likes[newsId] || 0) + 1;
                 button.classList.add('liked');
-                document.getElementById('like-text').textContent = '已赞';
-                
+                textEl.textContent = '已赞';
+
                 // 添加动画效果
                 button.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     button.style.transform = 'scale(1)';
                 }, 200);
             }
-            
-            saveLikes(likes);
-            document.getElementById('like-count').textContent = likes[newsId];
+
+            localStorage.setItem('ai_news_likes', JSON.stringify(likes));
+            countEl.textContent = likes[newsId];
         }
-        
-        // 初始化点赞状态
-        function initLikeButton() {
-            const newsId = 159;
-            const likes = getLikes();
-            
-            if (likes[newsId] && likes[newsId] > 0) {
-                document.querySelector('.like-button').classList.add('liked');
-                document.getElementById('like-text').textContent = '已赞';
-                document.getElementById('like-count').textContent = likes[newsId];
-            }
+
+        // 复制链接
+        function copyLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('链接已复制到剪贴板！');
+            }).catch(err => {
+                prompt('请复制链接:', url);
+            });
         }
-        
-        // 分享功能
-        function shareArticle(platform) {
-            const shareUrl = 'https://aihcn.com/news/159';
-            const title = encodeURIComponent('OpenAI发布自定义GPT-5.3模型API');
-            
-            const shareUrls = {
-                'twitter': 'https://twitter.com/intent/tweet?text=' + title + '&url=' + encodeURIComponent(shareUrl),
-                'facebook': 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
-                'linkedin': 'https://www.linkedin.com/shareArticle?title=' + title + '&url=' + encodeURIComponent(shareUrl),
-                'weibo': 'http://service.weibo.com/share/share.php?title=' + title + '&url=' + encodeURIComponent(shareUrl),
-                'copy': shareUrl
-            };
-            
-            if (platform === 'copy') {
-                navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert('链接已复制到剪贴板！\n\n' + shareUrl);
-                }).catch(() => {
-                    alert('复制失败，请手动复制链接');
-                });
-            } else {
-                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
-            }
-        }
-        
+
         // 页面加载时初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            initLikeButton();
-        });
+        async function initPage() {
+            const button = document.querySelector('.like-button');
+            const countEl = document.getElementById('like-count');
+            const textEl = document.getElementById('like-text');
+
+            try {
+                // 并行获取点赞数和点赞状态
+                const [count, isLiked] = await Promise.all([
+                    getLikeCount(),
+                    checkLike()
+                ]);
+
+                // 更新UI
+                if (isLiked) {
+                    button.classList.add('liked');
+                    textEl.textContent = '已赞';
+                }
+
+                countEl.textContent = count || 0;
+
+            } catch (error) {
+                console.error('初始化页面失败，降级到localStorage:', error);
+                // 降级到localStorage
+                const likes = JSON.parse(localStorage.getItem('ai_news_likes') || '{}');
+                const newsId = 159;
+                if (likes[newsId] && likes[newsId] > 0) {
+                    button.classList.add('liked');
+                    textEl.textContent = '已赞';
+                    countEl.textContent = likes[newsId];
+                }
+            }
+        }
+
+        // DOM加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
     </script>
 </body>
 </html>

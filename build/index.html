@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI前沿速递 | 每日AI新闻</title>
+    <meta name="description" content="AI前沿速递 - 最新AI新闻资讯">
+    <title>AI前沿速递</title>
     <style>
         * {
             margin: 0;
@@ -34,2244 +35,253 @@
         
         .header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
             margin-bottom: 15px;
         }
         
-        .count {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .news-section {
-            margin-bottom: 40px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .time-header {
-            color: #007AFF;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0 0 20px 0;
-            border-bottom: 2px solid #E5E5E5;
-            padding-bottom: 15px;
-        }
-        
         .news-item {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #E5E5E5;
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
         }
         
-        .news-item:last-child {
-            border-bottom: none;
+        .news-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .news-item a {
-            font-size: 1.3rem;
+        .news-title {
+            font-size: 1.2rem;
             font-weight: 600;
-            color: #007AFF;
+            color: #333;
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
         }
         
-        .news-item a:hover {
-            color: #5856D6;
-            text-decoration: underline;
+        .news-title:hover {
+            color: #007AFF;
         }
         
-        .news-item .time {
+        .news-desc {
             color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .news-meta {
+            color: #999;
             font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-        
-        .news-item .desc {
-            color: #333;
-            margin: 0 0 15px 0;
-            line-height: 1.7;
-        }
-        
-        .news-item .actions {
             display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .read-more {
-            color: #007AFF;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        .read-more:hover {
-            text-decoration: underline;
-        }
-        
-        .share-btn {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        
-        .share-btn:hover {
-            color: #007AFF;
+            gap: 20px;
         }
         
         .footer {
-            background: #1D1D1F;
-            color: white;
             text-align: center;
-            padding: 40px 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .news-section {
-                padding: 20px;
-            }
-            
-            .news-item a {
-                font-size: 1.1rem;
-            }
+            padding: 40px;
+            color: #999;
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <div class="header">
         <div class="container">
-            <h1>AI前沿速递</h1>
-            <p>更新时间: 2026年03月05日 17:22</p>
-            <p class="count">166条新闻</p>
+            <h1>🤖 AI前沿速递</h1>
+            <p>实时追踪AI技术最新动态</p>
         </div>
-    </header>
+    </div>
     
-    <main class="container">
-
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 17:00</h3>
-            <article class="news-item">
-                <a href="/news/162">Apple Unveils AI-Powered AirPods Noise Cancellation Technology</a>
-                <p class="desc">苹果推出AirPods噪音消除技术。该技术利用AI音频分离算法，在用户接听音乐或通电话时自动识别并消除背景噪音。新功能特别针对AirPods Pro新模型优化，支持高达72小时电池续航的主动降噪能力。用户可以手动调整噪音强度。苹果表示，这是对经常在地铁、飞机等嘈杂环境中使用的用户特别有用。...</p>
-                <div class="actions">
-                    <a href="/news/162" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(162)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
+    <div class="container">
         
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 17:00</h3>
-            <article class="news-item">
-                <a href="/news/163">Google Unveils "Gemini 3.5 Pro" for ChatGPT Integration</a>
-                <p class="desc">Google发布Gemini 3.5 Pro与ChatGPT深度集成，可直接在Gmail中调用ChatGPT功能。新模型在数据分析、代码生成和邮件写作方面表现出色，提升了智能邮箱体验。同时，模型能深入理解邮件上下文，提供更准确的智能回复。...</p>
-                <div class="actions">
-                    <a href="/news/163" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(163)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
+        <div class="news-item">
+            <a href="/news/162" class="news-title">Apple Unveils AI-Powered AirPods Noise Cancellation Technology</a>
+            <div class="news-desc">苹果推出AirPods噪音消除技术。该技术利用AI音频分离算法，在用户接听音乐或通电话时自动识别并消除背景噪音。新功能特别针对AirPods Pro新模型优化，支持高达72小时电池续航的主动降噪能力。...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 17:00</span>
+                <span>🔖 #162</span>
+            </div>
+        </div>
         
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 17:00</h3>
-            <article class="news-item">
-                <a href="/news/164">Tesla Unveils Optimus FSD v14.5 Performance Update</a>
-                <p class="desc">特斯拉发布FSD v14.5性能优化版本。新版本优化了系统瓶颈，减少了延迟和提高响应速度。高速变道上处理更加流畅，障碍物检测更准确。特斯拉声称v14.5的接管率提升了40%，安全边界检测更快更准确。新增"智能变道理解"，能够预测其他人的意图，变道更自然。...</p>
-                <div class="actions">
-                    <a href="/news/164" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(164)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
+        <div class="news-item">
+            <a href="/news/163" class="news-title">Google Unveils "Gemini 3.5 Pro" for ChatGPT Integration</a>
+            <div class="news-desc">Google发布Gemini 3.5 Pro与ChatGPT深度集成，可直接在Gmail中调用ChatGPT功能。新模型在数据分析、代码生成和邮件写作方面表现出色，提升了智能邮箱体验。同时，模型能深入...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 17:00</span>
+                <span>🔖 #163</span>
+            </div>
+        </div>
         
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 17:00</h3>
-            <article class="news-item">
-                <a href="/news/165">Meta Unveils Llama 4 with Advanced Reasoning Engine</a>
-                <p class="desc">Meta发布Llama 4高级推理引擎，专门优化复杂逻辑推理。该引擎在数学和科学计算任务上超越了GPT-5.3和Google Gemini Pro。新引擎采用链式思维（Chain of Thought），在推理复杂问题上的准确率达到92%，上下文窗口扩大至1M tokens。Meta计划在V4 Pr...</p>
-                <div class="actions">
-                    <a href="/news/165" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(165)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
+        <div class="news-item">
+            <a href="/news/164" class="news-title">Tesla Unveils Optimus FSD v14.5 Performance Update</a>
+            <div class="news-desc">特斯拉发布FSD v14.5性能优化版本。新版本优化了系统瓶颈，减少了延迟和提高响应速度。高速变道上处理更加流畅，障碍物检测更准确。特斯拉声称v14.5的接管率提升了40%，安全边界检测更快更准确。新...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 17:00</span>
+                <span>🔖 #164</span>
+            </div>
+        </div>
         
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 17:00</h3>
-            <article class="news-item">
-                <a href="/news/166">Amazon Bedrock Adds Claude 4 Enterprise Edition to Marketplace</a>
-                <p class="desc">AWS Bedrock添加Claude 4企业版到GenAI市场。新功能包含高级安全功能、支持多用户权限、详细日志和审计。企业级数据隐私保护更加完善，满足HIPAA、SOC 2等标准。
+        <div class="news-item">
+            <a href="/news/165" class="news-title">Meta Unveils Llama 4 with Advanced Reasoning Engine</a>
+            <div class="news-desc">Meta发布Llama 4高级推理引擎，专门优化复杂逻辑推理。该引擎在数学和科学计算任务上超越了GPT-5.3和Google Gemini Pro。新引擎采用链式思维（Chain of Thought...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 17:00</span>
+                <span>🔖 #165</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/166" class="news-title">Amazon Bedrock Adds Claude 4 Enterprise Edition to Marketplace</a>
+            <div class="news-desc">AWS Bedrock添加Claude 4企业版到GenAI市场。新功能包含高级安全功能、支持多用户权限、详细日志和审计。企业级数据隐私保护更加完善，满足HIPAA、SOC 2等标准。
 ---
 
----...</p>
-                <div class="actions">
-                    <a href="/news/166" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(166)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/155">DeepMind的AlphaFold 6正式发布，新增复合蛋白质设计</a>
-                <p class="desc">Google DeepMind正式发布AlphaFold 6，新增复合蛋白质设计功能。该系统能够设计由多个蛋白质分子组成的复合体结构，预测它们的结合方式和相互作用。同时设计每个组分的属性和功能。测试显示，AlphaFold 6设计的蛋白质在实验中表现出优异的生物学活性，这对理解蛋白质复合物的作用机制...</p>
-                <div class="actions">
-                    <a href="/news/155" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(155)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/156">特斯拉FSD v14开始向早期测试用户推送</a>
-                <p class="desc">特斯拉宣布FSD v14开始向早期测试用户推送。FSD v14是首个被认证为达到人类驾驶人水平的自动驾驶系统。测试用户将获得FSD v14的完整功能，包括城市街道导航、高速公路驾驶、自动泊车等。特斯拉表示，通过真实道路测试收集数据，持续改进系统。...</p>
-                <div class="actions">
-                    <a href="/news/156" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(156)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/157">Meta推出Llama 5 Open-Release版本</a>
-                <p class="desc">Meta发布Llama 5开源版本。新模型包含100多个语言的训练数据，支持文本、图像、音频、视频等多模态任务。参数从7B到405B不等，满足不同规模需求。模型权重已在Hugging Face上发布，促进全球AI生态开放。...</p>
-                <div class="actions">
-                    <a href="/news/157" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(157)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/158">百度发布文心大模型5参数达到5000亿</a>
-                <p class="desc">百度发布文心大模型5，参数达到5000亿参数。新模型在自然语言理解、知识问答和编程任务上刷新纪录。百度表示，文心系列模型已经超越GPT-4等开源模型的速度，具备强大的知识推理和对话能力。...</p>
-                <div class="actions">
-                    <a href="/news/158" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(158)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/159">OpenAI发布自定义GPT-5.3模型API</a>
-                <p class="desc">OpenAI正式推出自定义GPT-5.3模型API。开发者可以使用自己的数据微调模型，创建专用版本。API提供了完整的微调、评估和部署能力。企业可以使用自己的数据训练私有模型，完全控制数据权限。已集成到Azure、Google Cloud和AWS。...</p>
-                <div class="actions">
-                    <a href="/news/159" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(159)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/160">Amazon Bedrock 发布GenAI Marketplace（60+模型）</a>
-                <p class="desc">亚马逊AWS Bedrock GenAI市场扩展至60多个AI模型。新整合包括Anthropic Cohere 2.5、Meta Llama 5和Google Gemini 2.1 Ultra等。企业可以统一调用多个AI模型进行比较和测试，降低开发门槛。...</p>
-                <div class="actions">
-                    <a href="/news/160" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(160)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 16:00</h3>
-            <article class="news-item">
-                <a href="/news/161">三星Exynos V3 AI加速器性能测试</a>
-                <p class="desc">三星的Exynos V3 AI加速器进行性能测试，显示出在AI推理任务上性能提升50-60%，功耗降低30%。Exynos V3是三星最新的手机AI加速芯片，用于Galaxy S25和S25 Ultra的端侧AI功能。三星表示，该芯片将增强语音助手、拍照和搜索的AI体验。
-
----
-
-
----...</p>
-                <div class="actions">
-                    <a href="/news/161" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(161)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/135">OpenAI Announces GPT-5.3 'Turbo' Model for Enterprise Workflows</a>
-                <p class="desc">OpenAI发布GPT-5.3 Turbo专为企业工作流优化。新模型在重复性任务中的速度比GPT-5.3提高80%，特别适合代码生成、数据分析和文档处理等场景。Turbo版本还集成了新的工作流编排引擎，可以自动拆解复杂任务并分配给不同的模型协作完成。...</p>
-                <div class="actions">
-                    <a href="/news/135" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(135)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/136">Google DeepMind's AlphaFold 5 Solves Complex Protein Design Challenges</a>
-                <p class="desc">Google DeepMind的AlphaFold 5解决了复杂的蛋白质设计挑战。新模型能够同时设计蛋白质序列的三维结构、稳定性和功能，准确率达到95%。测试显示，AlphaFold 5设计的蛋白质在实验中表现出优异的生物学活性，有望加速新药研发和酶工程的发展。...</p>
-                <div class="actions">
-                    <a href="/news/136" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(136)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/137">Meta AI Research Releases New Multi-Agent System for Scientific Discovery</a>
-                <p class="desc">Meta AI Research发布新的多智能体系统用于科学发现。该系统包含专门的角色：数据收集、假设生成、实验设计和结果分析。多个AI智能体协同工作，在材料科学和化学领域取得了突破性进展，快速发现了3种新型催化剂材料。...</p>
-                <div class="actions">
-                    <a href="/news/137" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(137)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/138">Tesla's AI-Powered Energy Management System Saves 30% Grid</a>
-                <p class="desc">特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...</p>
-                <div class="actions">
-                    <a href="/news/138" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(138)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/139">Apple's On-Device L Enables Privacy-First AI Features</a>
-                <p class="desc">苹果发布全新的端侧AI（On-Device L）技术，强调隐私优先的设计理念。新架构使得Siri、照片编辑和搜索等所有AI功能都在设备本地运行，无需将用户数据上传到云端。测试显示，端侧AI的响应延迟降低了90%，准确性提高了25%，同时完全保护用户隐私。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/139" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(139)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/140">OpenAI Announces GPT-5.3 'Turbo' Model for Enterprise Workflows</a>
-                <p class="desc">OpenAI发布GPT-5.3 Turbo专为企业工作流优化。新模型在重复性任务中的速度比GPT-5.3提高80%，特别适合代码生成、数据分析和文档处理等场景。Turbo版本还集成了新的工作流编排引擎，可以自动拆解复杂任务并分配给不同的模型协作完成。...</p>
-                <div class="actions">
-                    <a href="/news/140" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(140)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/141">Google DeepMind's AlphaFold 5 Solves Complex Protein Design Challenges</a>
-                <p class="desc">Google DeepMind的AlphaFold 5解决了复杂的蛋白质设计挑战。新模型能够同时设计蛋白质序列的三维结构、稳定性和功能，准确率达到95%。测试显示，AphaFold 5设计的蛋白质在实验中表现出优异的生物学活性，有望加速新药研发和酶工程的发展。...</p>
-                <div class="actions">
-                    <a href="/news/141" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(141)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/142">Meta AI Research Releases New Multi-Agent System for Scientific Discovery</a>
-                <p class="desc">Meta AI Research发布新的多智能体系统用于科学发现。该系统包含专门的角色：数据收集、假设生成、实验设计和结果分析。多个AI智能体协同工作，在材料科学和化学领域取得了突破性进展，快速发现了3种新型催化剂材料。...</p>
-                <div class="actions">
-                    <a href="/news/142" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(142)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/143">Tesla's AI-Powered Energy Management System Saves 30% Grid</a>
-                <p class="desc">特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...</p>
-                <div class="actions">
-                    <a href="/news/143" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(143)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/144">Apple's On-Device L Enables Privacy-First AI Features</a>
-                <p class="desc">苹果发布全新的端侧AI（On-Device L）技术，强调隐私优先的设计理念。新架构使得Siri、照片编辑和搜索等所有AI功能都在设备本地运行，无需将用户数据上传到云端。测试显示，端侧AI的响应延迟降低了90%，准确性提高了25%，同时完全保护用户隐私。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/144" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(144)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/145">AI-Powered Real-Time Translation Breaks Language Barriers</a>
-                <p class="desc">OpenAI推出了新的GPT-5.3 Instant更新，专注于提高准确性、更好地理解问题上下文，并减少"不必要的死胡同、警告和过于声明性的措辞"。更新还解决了5.2-Instant模型"显得过度强势或对用户意图或情绪做出无根据假设"的问题。...</p>
-                <div class="actions">
-                    <a href="/news/145" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(145)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/146">Protesters plan to gather outside OpenAI's offices today to protest its Pentagon deal</a>
-                <p class="desc">抗议者计划在OpenAI办公室外集会，抗议其与五角大楼的交易。抗议活动由QuitGPT组织，重点关注AI驱动的大规模国内监控和致命自主武器。该草根活动声称已激励超过150万人采取相关行动。...</p>
-                <div class="actions">
-                    <a href="/news/146" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(146)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/147">Claude Code rolls out a voice mode capability</a>
-                <p class="desc">Anthropic的Claude Code推出语音模式功能，为开发者提供语音交互体验。...</p>
-                <div class="actions">
-                    <a href="/news/147" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(147)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/148">ChatGPT uninstalls surged by 295% after DoD deal</a>
-                <p class="desc">在与美国国防部达成协议后，ChatGPT应用卸载量激增295%，反映了用户对AI军事应用的担忧。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/148" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(148)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/149">MIT Researchers Develop AI That Can Write and Review Its Own Code</a>
-                <p class="desc">MIT的研究团队开发出能够自动编写、运行和调试自身代码的AI系统。该系统名为"AutoCoder"，使用大语言模型编写代码，然后自动执行测试用例，根据错误反馈自动修复bug。在测试中，AutoCoder在LeetCode平台上的算法题目中达到了人类专家的90%水平，并且能在30秒内解决大部分中等难度...</p>
-                <div class="actions">
-                    <a href="/news/149" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(149)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/150">Meta AI Announces New Framework for Multimodal AI Agents</a>
-                <p class="desc">Meta AI发布新的多模态AI智能体框架，能够同时处理文本、图像、音频和视频。该框架名为"CMTA"（Cross-Modal Transformer Agents），采用了创新的跨模态注意力机制，使AI能够在不同模态之间无缝切换和理解。测试显示，CMTA在视觉问答任务上准确率达到95%，同时保持了...</p>
-                <div class="actions">
-                    <a href="/news/150" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(150)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/151">Google Releases Open Source AI Model for Protein Design</a>
-                <p class="desc">Google DeepMind发布开源的蛋白质设计AI模型"ProtoDesign"。该模型基于AlphaFold 3的技术，现在可以主动设计全新的蛋白质序列，适用于药物开发、酶工程和材料科学。Google表示，开源这个模型是为了加速全球AI在生物医药领域的创新。模型Hugging Face上下载量...</p>
-                <div class="actions">
-                    <a href="/news/151" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(151)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/152">AI-Powered Personal Assistant Market to Reach $150B by 2030</a>
-                <p class="desc">Forbes报告显示，AI个人助理市场规模预计将在2030年达到1500亿美元。主要驱动力包括智能手机普及、智能音箱增长和企业级应用需求。OpenAI、Google、Amazon和苹果是市场领导者，而中国的小米、百度和阿里巴巴也在快速追赶。报告特别强调了AI助手在日常任务管理、语音交互和个性化推荐方...</p>
-                <div class="actions">
-                    <a href="/news/152" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(152)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/153">Tesla Announces Breakthrough in AI-Powered Battery Management</a>
-                <p class="desc">特斯拉宣布在AI驱动的电池管理系统上取得重大突破。新系统使用深度学习预测电池寿命、优化充电策略、延长电池使用时间。在测试中，该系统将电动车电池寿命延长了35%，充电速度提高了50%。这一技术将应用于下一代Model Y和Cybertruck，并计划开放给其他汽车制造商使用。...</p>
-                <div class="actions">
-                    <a href="/news/153" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(153)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 15:00</h3>
-            <article class="news-item">
-                <a href="/news/154">Softbank 银行将在 2027 年引入 AI 系统</a>
-                <p class="desc">软银宣布将在2027年在其系统内部引入AI系统。该系统将分析客户行为模式，优化产品推荐和风险管理。软银计划在零售、个人理财和企业银行业务中试运行，预计节省30%的人工成本。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/154" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(154)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 14:00</h3>
-            <article class="news-item">
-                <a href="/news/130">Hugging Face Launches New AI Model Hub for Edge Computing</a>
-                <p class="desc">Hugging Face推出边缘计算的AI模型中心。新平台专门为移动设备、物联网设备和边缘服务器优化的AI模型集合。这些模型经过量化压缩，在保持高精度的同时显著降低了计算需求。Hugging Face表示，这将让更多类型的设备能够运行AI应用，加速边缘智能的普及。...</p>
-                <div class="actions">
-                    <a href="/news/130" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(130)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 14:00</h3>
-            <article class="news-item">
-                <a href="/news/131">MIT Scientists Develop AI That Designs New Materials</a>
-                <p class="desc">MIT科学家开发出能够设计新材料的AI系统。该系统能够预测不同元素组合的性质，自动发现具有优异特性的新材料组合。在测试中，该系统成功设计出了一种新型的锂电池正极材料，将电池容量提高了40%。这一突破可能彻底改变能源存储、电子设备和航空航天领域。...</p>
-                <div class="actions">
-                    <a href="/news/131" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(131)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 14:00</h3>
-            <article class="news-item">
-                <a href="/news/132">Google DeepMind's AlphaFold 4 Predicts Protein-RNA Interactions</a>
-                <p class="desc">Google DeepMind的AlphaFold 4新增了蛋白质-RNA相互作用预测功能。这是AI首次能够准确预测蛋白质与RNA分子之间的结合模式，对于理解基因表达调控和开发RNA疗法具有重要意义。DeepMind表示，这项技术将帮助科学界加速治疗疾病的新药发现。...</p>
-                <div class="actions">
-                    <a href="/news/132" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(132)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 14:00</h3>
-            <article class="news-item">
-                <a href="/news/133">Apple's Neural Engine M5 Enables New On-Device AI Capabilities</a>
-                <p class="desc">苹果的M5芯片搭载新一代神经引擎，为Siri和系统应用带来强劲的实时AI能力。AI功能无需依赖云端，可以即时处理视觉、语音和自然语言任务。苹果演示了实时视频转字幕、语音实时翻译和智能照片编辑等功能。新神经引擎性能较前代提升了60%，AI推理延迟降低至10毫秒以内。...</p>
-                <div class="actions">
-                    <a href="/news/133" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(133)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 14:00</h3>
-            <article class="news-item">
-                <a href="/news/134">Tesla's Optimus Robots Learn Collaborative Tasks in Factories</a>
-                <p class="desc">特斯拉的Optimus机器人已开始在工厂中学习协作任务。最新的Optimus机器人能够与人类工人协同工作，执行组装、搬运和质量检查等任务。通过模仿学习和强化学习，机器人迅速掌握了复杂的工作流程。特斯拉表示，这些机器人在生产线上表现出了极高的可靠性和工作效率，计划在更多工厂部署。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/134" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(134)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 13:00</h3>
-            <article class="news-item">
-                <a href="/news/125">NVIDIA Unveils AI-Optimized Data Centers at GTC 2026</a>
-                <p class="desc">NVIDIA在GTC 2026大会上展示全新AI数据中心架构。新架构采用液冷系统和定制AI芯片，将数据中心性能提升3倍，同时降低50%的能耗。该数据中心专门为大语言模型训练和推理优化，支持万亿参数模型的部署。NVIDIA还宣布与多家云服务商合作，将这种架构推向全球。...</p>
-                <div class="actions">
-                    <a href="/news/125" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(125)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 13:00</h3>
-            <article class="news-item">
-                <a href="/news/126">DeepMind's AlphaCode 3.0 Passes Senior Developer Certification Exam</a>
-                <p class="desc">Google DeepMind的AlphaCode 3.0通过了高级开发者认证考试，这是AI首次在编程专业认证中达到人类专家水平。该系统通过了包括算法设计、系统架构和代码审查在内的多项测试。DeepMind表示，这标志着AI已经准备好协助大型软件项目的开发。...</p>
-                <div class="actions">
-                    <a href="/news/126" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(126)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 13:00</h3>
-            <article class="news-item">
-                <a href="/news/127">Chinese AI Startup Raises $2B for AGI Research</a>
-                <p class="desc">一家中国AI初创公司完成20亿美元B轮融资，专注于通用人工智能（AGI）研究。该公司的AI模型在推理和创造力测试中表现出色，被认为具有AGI潜力。投资方包括红杉资本、腾讯和高瓴资本。公司计划利用这笔资金扩大研发团队，加速AGI的实现。...</p>
-                <div class="actions">
-                    <a href="/news/127" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(127)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 13:00</h3>
-            <article class="news-item">
-                <a href="/news/128">Apple Introduces AI-Powered Health Monitoring in Watch Series 10</a>
-                <p class="desc">苹果在Apple Watch Series 10中引入AI驱动的健康监测功能。新手表能够实时检测心脏异常、预测血糖波动、分析睡眠质量，并能提前预警潜在健康问题。该AI系统经过大量真实用户数据训练，准确率达到98%，已获得FDA认证。苹果表示，这项技术将改变人们管理健康的方式。...</p>
-                <div class="actions">
-                    <a href="/news/128" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(128)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 13:00</h3>
-            <article class="news-item">
-                <a href="/news/129">Microsoft Launches AI-Powered Accessibility Tools for Disabled Users</a>
-                <p class="desc">微软发布一系列AI驱动的无障碍工具，帮助残障用户更方便地使用电脑。新工具包括实时语音转文字、图像描述生成、手势识别和文字转语音。这些工具使用最新的多模态AI技术，能够准确理解用户的意图并提供即时的帮助。微软承诺将所有这些工具免费提供给Windows用户。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/129" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(129)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 12:00</h3>
-            <article class="news-item">
-                <a href="/news/120">Amazon Introduces New AI-Powered Product Recommendations Engine</a>
-                <p class="desc">亚马逊推出全新的AI驱动产品推荐引擎，基于最新的深度学习技术。该引擎能够分析用户的浏览历史、购买行为和社交数据，提供高度个性化的产品推荐。测试结果显示，新的推荐引擎将转化率提高了45%，用户满意度提升了30%。引擎支持实时学习和适应，能够快速识别新的消费趋势和用户偏好变化。...</p>
-                <div class="actions">
-                    <a href="/news/120" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(120)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 12:00</h3>
-            <article class="news-item">
-                <a href="/news/121">Samsung Unveils AI-Enabled Smart Mirror for Fashion Retail</a>
-                <p class="desc">三星发布面向时尚零售的AI智能镜面。该设备结合了计算机视觉和时尚AI，能够实时分析用户的身材、肤色和个人风格，提供个性化的服装搭配建议。智能镜面还支持虚拟试衣功能，用户可以在镜子中看到自己穿着不同服装的效果。三星表示，这项技术将彻底革新线上和线下购物体验。...</p>
-                <div class="actions">
-                    <a href="/news/121" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(121)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 12:00</h3>
-            <article class="news-item">
-                <a href="/news/122">Meta Announces Breakthrough in AI-Powered Real-Time Video Generation</a>
-                <p class="desc">Meta宣布在实时视频生成AI方面取得重大突破。新系统能够以30fps的帧率实时生成高分辨率视频，支持文本到视频、图像到视频和视频到视频的创作。该模型采用了创新的时空注意力机制和渐进式生成策略，大幅提高了视频的连贯性和真实性。Meta计划将这项技术集成到Instagram和Facebook平台。...</p>
-                <div class="actions">
-                    <a href="/news/122" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(122)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 12:00</h3>
-            <article class="news-item">
-                <a href="/news/123">OpenAI Launches Enterprise-Grade Security Tools for ChatGPT</a>
-                <p class="desc">OpenAI为企业版本ChatGPT推出全新的安全工具套件。新工具包括数据加密、访问控制、合规监控和威胁检测等功能。企业可以定义自定义安全策略，自动检测和阻止敏感数据泄露。这些工具符合GDPR、HIPAA、SOC 2等标准，特别适合金融、医疗和法律等行业使用。...</p>
-                <div class="actions">
-                    <a href="/news/123" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(123)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 12:00</h3>
-            <article class="news-item">
-                <a href="/news/124">Tesla Opens Source Its AI Software for Electric Vehicle Charging</a>
-                <p class="desc">特斯拉宣布开源其电动汽车充电系统的AI软件。该软件能够预测充电站的使用情况，优化充电调度，避免拥堵和等待。开源版本包括了完整的机器学习模型、训练数据和部署脚本。特斯拉表示，开源有助于整个电动汽车行业的进步，欢迎其他制造商使用和改进这些技术。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/124" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(124)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 11:00</h3>
-            <article class="news-item">
-                <a href="/news/115">MIT Researchers Develop AI That Can Write and Review Its Own Code</a>
-                <p class="desc">MIT的研究团队开发出能够自动编写、运行和调试自身代码的AI系统。该系统名为"AutoCoder"，使用大语言模型编写代码，然后自动执行测试用例，根据错误反馈自动修复bug。在测试中，AutoCoder在LeetCode平台上的算法题目中达到了人类专家的90%水平，并且能在30秒内解决大部分中等难度...</p>
-                <div class="actions">
-                    <a href="/news/115" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(115)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 11:00</h3>
-            <article class="news-item">
-                <a href="/news/116">Meta AI Announces New Framework for Multimodal AI Agents</a>
-                <p class="desc">Meta AI发布新的多模态AI智能体框架，能够同时处理文本、图像、音频和视频。该框架名为"CMTA"（Cross-Modal Transformer Agents），采用了创新的跨模态注意力机制，使AI能够在不同模态之间无缝切换和理解。测试显示，CMTA在视觉问答任务上准确率达到95%，同时保持了...</p>
-                <div class="actions">
-                    <a href="/news/116" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(116)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 11:00</h3>
-            <article class="news-item">
-                <a href="/news/117">Google Releases Open Source AI Model for Protein Design</a>
-                <p class="desc">Google DeepMind发布开源的蛋白质设计AI模型"ProtoDesign"。该模型基于AlphaFold 3的技术，现在可以主动设计全新的蛋白质序列，适用于药物开发、酶工程和材料科学。Google表示，开源这个模型是为了加速全球AI在生物医药领域的创新。模型Hugging Face上下载量...</p>
-                <div class="actions">
-                    <a href="/news/117" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(117)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 11:00</h3>
-            <article class="news-item">
-                <a href="/news/118">AI-Powered Personal Assistant Market to Reach $150B by 2030</a>
-                <p class="desc">Forbes报告显示，AI个人助理市场规模预计将在2030年达到1500亿美元。主要驱动力包括智能手机普及、智能音箱增长和企业级应用需求。OpenAI、Google、Amazon和苹果是市场领导者，而中国的小米、百度和阿里巴巴也在快速追赶。报告特别强调了AI助手在日常任务管理、语音交互和个性化推荐方...</p>
-                <div class="actions">
-                    <a href="/news/118" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(118)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 11:00</h3>
-            <article class="news-item">
-                <a href="/news/119">Tesla Announces Breakthrough in AI-Powered Battery Management</a>
-                <p class="desc">特斯拉宣布在AI驱动的电池管理系统上取得重大突破。新系统使用深度学习预测电池寿命、优化充电策略、延长电池使用时间。在测试中，该系统将电动车电池寿命延长了35%，充电速度提高了50%。这一技术将应用于下一代Model Y和Cybertruck，并计划开放给其他汽车制造商使用。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/119" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(119)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 10:00</h3>
-            <article class="news-item">
-                <a href="/news/110">Google DeepMind Achieves Major Breakthrough in Protein Folding with AlphaFold 4</a>
-                <p class="desc">Google DeepMind宣布AlphaFold 4取得重大突破，不仅能够预测蛋白质结构，还能准确预测蛋白质复合物和多蛋白 assemblies 的三维结构。新版本在蛋白质相互作用预测方面的准确率达到了97%，远超之前的任何方法。这一突破将彻底改变药物研发过程，使科学家能够在计算机上模拟完整的生...</p>
-                <div class="actions">
-                    <a href="/news/110" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(110)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 10:00</h3>
-            <article class="news-item">
-                <a href="/news/111">OpenAI Introduces "Self-Healing" AI Models That Can Fix Their Own Errors</a>
-                <p class="desc">OpenAI发布"自愈型"AI模型，这些模型能够在运行中自动检测和修正自己的错误。该技术利用元学习（meta-learning）原理，让模型学会如何改进自己的推理过程。在测试中，自愈模型在数学问题上的错误率降低了42%，在编程任务中的bug率降低了38%。OpenAI表示，这一技术将首先集成到GPT...</p>
-                <div class="actions">
-                    <a href="/news/111" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(111)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 10:00</h3>
-            <article class="news-item">
-                <a href="/news/112">NVIDIA Introduces AI-Powered Real-Time Ray Tracing for Mobile Devices</a>
-                <p class="desc">英伟达发布面向移动设备的AI辅助实时光线追踪技术。该技术利用小型神经网络加速光线追踪计算，让中端智能手机也能运行高质量的3D游戏和AR应用。在演示中，搭载这一技术的原型机在保持60fps的同时实现了接近PC级别的光影效果。英伟达表示，这将为移动游戏和AR/VR应用带来全新的视觉体验。...</p>
-                <div class="actions">
-                    <a href="/news/112" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(112)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 10:00</h3>
-            <article class="news-item">
-                <a href="/news/113">AI-Powered Personalized Education Platform Raises $500M Series C</a>
-                <p class="desc">AI个性化教育平台"LearnSmart"完成5亿美元C轮融资，估值达到50亿美元。该平台利用大语言模型为每个学生定制学习路径，实时调整难度和内容，根据学生的学习风格和进度提供个性化指导。目前已有超过1000万学生使用该平台，学习效率平均提升了40%。本轮融资由红杉资本领投，将用于扩展全球业务和开发...</p>
-                <div class="actions">
-                    <a href="/news/113" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(113)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 10:00</h3>
-            <article class="news-item">
-                <a href="/news/114">European Union Announces $10B AI Research Initiative for Green Energy</a>
-                <p class="desc">欧盟宣布启动100亿美元的AI研究计划，专门用于开发加速绿色能源技术的人工智能解决方案。计划将重点投资三个方向：智能电网优化、可再生能源预测和碳捕获技术。欧盟表示，AI技术将在实现2030年气候目标中发挥关键作用。该计划将持续5年，预计创造超过10万个高技术工作岗位。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/114" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(114)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 09:00</h3>
-            <article class="news-item">
-                <a href="/news/105">Adobe Brings Generative AI to Photoshop Web with Real-time Collaboration</a>
-                <p class="desc">Adobe宣布将生成式AI功能引入Photoshop网页版，并支持实时协作功能。新功能包括AI辅助图像生成、智能填充和风格迁移，多个用户可以同时在同一项目上工作。这将彻底改变创意团队的协作方式，让设计师、插画师和客户能够实时共创。Adobe表示，所有AI生成的内容都会自动标注来源，符合欧盟AI法案的...</p>
-                <div class="actions">
-                    <a href="/news/105" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(105)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 09:00</h3>
-            <article class="news-item">
-                <a href="/news/106">OpenAI Reports Record Q4 Revenue Driven by Enterprise Adoption</a>
-                <p class="desc">OpenAI发布2026年第四季度财务报告，季度营收达到45亿美元，同比增长180%。企业采用是主要增长动力，特别是金融、医疗和法律行业的客户大幅增加。ChatGPT Enterprise版已成为公司的明星产品，占据总营收的35%。OpenAI表示将继续投资AI研究和基础设施，计划在未来两年内将算力...</p>
-                <div class="actions">
-                    <a href="/news/106" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(106)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 09:00</h3>
-            <article class="news-item">
-                <a href="/news/107">New AI Model Can Detect Early Signs of Alzheimer's from Speech Patterns</a>
-                <p class="desc">《自然》杂志发表研究，开发出能从语音模式中早期检测阿尔茨海默病的AI模型。该模型通过分析患者的词汇选择、句子结构和语调变化，能够在症状出现前3年预测疾病风险，准确率达到89%。相比传统的MRI和认知测试，这种方法无创且成本更低。研究团队正在开发家用监测设备，让高风险人群可以定期自查。...</p>
-                <div class="actions">
-                    <a href="/news/107" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(107)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 09:00</h3>
-            <article class="news-item">
-                <a href="/news/108">Samsung Launches AI-Powered Smart Home Ecosystem with Universal Control</a>
-                <p class="desc">三星发布全新的AI智能家居生态系统，配备通用控制中心。新系统能够通过自然语言指令控制超过1000个品牌的智能设备，学习用户习惯并自动优化家居环境。例如，系统会根据用户作息自动调节室内温度、灯光和窗帘，甚至在检测到用户不在家时自动安防巡逻。这是三星迄今为止最全面的智能家居解决方案，体现了AI在物联网领...</p>
-                <div class="actions">
-                    <a href="/news/108" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(108)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 09:00</h3>
-            <article class="news-item">
-                <a href="/news/109">Elon Musk's xAI Unveils "Grok-X" - A New Large Language Model Focused on Scientific Reasoning</a>
-                <p class="desc">埃隆·马斯克的xAI公司发布全新大语言模型Grok-X，专注于科学推理能力。该模型在物理、化学、生物等科学领域的推理测试中超越了GPT-5.3和Claude 4，准确率达到94%。Grok-X独特之处在于它采用了全新的"因果推理"架构，不仅能够识别模式，还能理解事物之间的因果关系。xAI表示，Gro...</p>
-                <div class="actions">
-                    <a href="/news/109" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(109)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 08:00</h3>
-            <article class="news-item">
-                <a href="/news/100">AI-Powered Real-Time Translation Breaks Language Barriers at Tokyo Summit</a>
-                <p class="desc">在东京举行的全球AI峰会上，OpenAI和Google联合展示了全新的AI实时翻译技术。该系统能够实现100种语言的语音对语音实时翻译，延迟低于200毫秒，准确率达到98.5%。技术突破在于采用了全新的跨语言向量表示模型，大幅提升了翻译的自然度和准确性。这一技术有望彻底改变国际交流方式，让语言障碍成...</p>
-                <div class="actions">
-                    <a href="/news/100" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(100)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 08:00</h3>
-            <article class="news-item">
-                <a href="/news/101">Meta Announces AI Content Moderation Suite for Social Platforms</a>
-                <p class="desc">Meta发布全新的AI内容审核套件，专为社会媒体平台设计。该套件利用多模态AI技术，能够同时分析文本、图像和视频内容，识别有害信息、虚假新闻和违规内容。在测试中，该系统能以95%的准确率识别深度伪造内容和误导性信息。Meta表示将向第三方平台开放API，帮助整个互联网生态提高内容安全水平。...</p>
-                <div class="actions">
-                    <a href="/news/101" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(101)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 08:00</h3>
-            <article class="news-item">
-                <a href="/news/102">Chinese Tech Giants Form AI Alliance to Compete with US</a>
-                <p class="desc">阿里巴巴、腾讯、百度、字节跳动等中国科技公司宣布组建AI联盟，旨在与美国科技公司竞争。联盟将共享AI研究成果、开放部分模型，并制定统一的AI伦理标准。这一举措标志着中国AI产业从单兵作战转向协同发展，可能在硬件制造、模型训练和应用落地等各个领域与美国形成竞争态势。...</p>
-                <div class="actions">
-                    <a href="/news/102" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(102)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 08:00</h3>
-            <article class="news-item">
-                <a href="/news/103">Stanford Researchers Develop AI That Generates Novel Scientific Hypotheses</a>
-                <p class="desc">斯坦福大学研究人员开发出能够生成新颖科学假说的AI系统，名为HypoGen。该系统通过阅读数百万篇科学论文，识别领域内的知识空白，并提出可以验证的假设。在生物学和材料科学领域中，HypoGen提出的30个假设中有20个已经得到初步验证。这一发现表明AI可能成为科学发现的重要工具，加速人类对自然界的理...</p>
-                <div class="actions">
-                    <a href="/news/103" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(103)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 08:00</h3>
-            <article class="news-item">
-                <a href="/news/104">Autonomous Systems Alliance Releases First Global Safety Standards</a>
-                <p class="desc">自主系统联盟发布首个全球人工智能安全标准，涵盖自动驾驶、机器人、智能代理等多个领域。标准包括安全设计原则、测试认证流程、事故通报机制和伦理审查框架。包括丰田、波音、Siemens在内的50多家企业已承诺采用这些标准。这是AI产业首次达成全球性的安全共识，为规范AI技术的快速发展奠定基础。
-
----
-...</p>
-                <div class="actions">
-                    <a href="/news/104" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(104)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 07:00</h3>
-            <article class="news-item">
-                <a href="/news/95">Researchers Develop AI That Can Learn from Video Demonstrations</a>
-                <p class="desc">研究人员开发出新AI系统，能够通过观看视频演示直接学习技能。该系统名为VideoLearn，利用自监督学习技术，从YouTube和其他视频平台收集的演示视频中提取动作和策略。在测试中，VideoLearn学会了烹饪、装配、体育等多个领域的复杂任务，学习效率比传统方法提高了3倍。这一突破可能大幅降低A...</p>
-                <div class="actions">
-                    <a href="/news/95" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(95)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 07:00</h3>
-            <article class="news-item">
-                <a href="/news/96">Google Unveils AutoGPT: AI That Builds Other AI Models</a>
-                <p class="desc">Google发布了AutoGPT，这是一个能够自动设计和训练其他AI模型的AI系统。AutoGPT可以分析特定任务的需求，自动选择合适的架构、超参数和数据集，然后训练和优化模型。在测试中，AutoGPT构建的模型在多个基准测试中达到了人类专家设计模型的90%以上性能，而开发时间从数周缩短到数小时。这...</p>
-                <div class="actions">
-                    <a href="/news/96" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(96)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 07:00</h3>
-            <article class="news-item">
-                <a href="/news/97">New Study Reveals AI Bias in Healthcare Diagnosis</a>
-                <p class="desc">《新英格兰医学杂志》发表研究，揭示了AI在医疗诊断中的潜在偏见。研究团队分析了50个商用AI诊断系统，发现它们在特定人群中的准确率有显著差异，尤其是对老年患者和少数族裔。例如，某些皮肤癌检测系统在深色皮肤上的准确率比浅色皮肤低15%。研究呼吁在AI医疗应用中建立更严格的测试标准和公平性保障措施。...</p>
-                <div class="actions">
-                    <a href="/news/97" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(97)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 07:00</h3>
-            <article class="news-item">
-                <a href="/news/98">OpenAI Launches GPT-5.3 "NeuroSafe" Edition for Sensitive Applications</a>
-                <p class="desc">OpenAI发布GPT-5.3 "NeuroSafe"版本，专门为处理敏感数据和高风险应用设计。该版本在标准GPT-5.3基础上增加了多层安全过滤、可审计日志和行为监控功能。NeuroSafe特别适合金融、医疗、法律等对安全性和合规性要求严格的行业。OpenAI还提供专门的合规支持服务，帮助客户满足...</p>
-                <div class="actions">
-                    <a href="/news/98" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(98)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 07:00</h3>
-            <article class="news-item">
-                <a href="/news/99">Tesla FSD v13 Achieves Human-Level Performance in Urban Environments</a>
-                <p class="desc">特斯拉宣布其全自动驾驶系统FSD v13在城市环境中达到了人类水平的驾驶性能。根据特斯拉发布的数据，FSD v13在复杂城市路况下的接管率降低到每100万英里少于0.1次，比人类新手驾驶员的水平还低10%。系统采用了全新的端到端神经网络和实时决策引擎，能够处理突发情况、施工区域和恶劣天气。特斯拉表示...</p>
-                <div class="actions">
-                    <a href="/news/99" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(99)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 06:00</h3>
-            <article class="news-item">
-                <a href="/news/90">Microsoft built Phi-4-reasoning-vision-15B to know when to think — and when thinking is a waste of time</a>
-                <p class="desc">Microsoft发布Phi-4-reasoning-vision-15B，一个紧凑的开源多模态AI模型，包含150亿参数。该模型性能匹配甚至超过了规模大得多的系统，同时只消耗很少的计算资源和训练数据。它可以处理图像和文本，解决复杂的数学和科学问题，解释图表和文档，导航图形用户界面，以及处理图片说明...</p>
-                <div class="actions">
-                    <a href="/news/90" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(90)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 06:00</h3>
-            <article class="news-item">
-                <a href="/news/91">Apple today unveiled MacBook Neo</a>
-                <p class="desc">苹果今天发布了全新的MacBook Neo笔记本，以突破性的价格提供Mac的魔力，让全世界数百万人更容易获得。MacBook Neo采用漂亮的苹果设计，配备耐用的铝金属外壳，提供多种鲜艳颜色——粉红、靛蓝、银色和清新的柑橘色。其令人惊艳的13英寸Liquid Retina显示屏具有高分辨率和亮度，支...</p>
-                <div class="actions">
-                    <a href="/news/91" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(91)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 06:00</h3>
-            <article class="news-item">
-                <a href="/news/92">The global race for AI talent intensifies in 2026</a>
-                <p class="desc">2026年AI人才全球竞争加剧。根据Nature杂志报道，各国和企业都在积极争夺AI领域顶尖人才，提供超高薪资和工作福利。统计显示，AI研究人员的平均薪资在过去两年增长了45%，远超其他技术领域。中国、美国、欧盟都在制定吸引AI人才的政策，包括提供研究经费、税收优惠和居留权便利。人才竞争正成为AI发...</p>
-                <div class="actions">
-                    <a href="/news/92" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(92)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 06:00</h3>
-            <article class="news-item">
-                <a href="/news/93">OpenAI announces new safety measures for GPT-5.3 deployment</a>
-                <p class="desc">OpenAI宣布为GPT-5.3的部署推出新的安全措施。新措施包括增强的对抗性测试框架、实时监控系统和自动风险评估工具。公司表示，这些措施旨在减少模型输出有害内容的风险，提高AI系统的可靠性和安全性。特别关注的是防止模型被用于生成虚假信息、网络攻击和生物安全威胁。OpenAI还承诺将定期发布透明度报...</p>
-                <div class="actions">
-                    <a href="/news/93" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(93)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 06:00</h3>
-            <article class="news-item">
-                <a href="/news/94">NVIDIA announces new AI training chips optimized for LLMs</a>
-                <p class="desc">英伟达宣布推出专门针对大语言模型优化的新一代AI训练芯片。新芯片在训练速度上相比上一代提升了65%，同时功耗降低了30%。该芯片支持FP8和INT8精度训练，可以大幅降低大规模模型训练的成本和时间。英伟达还宣布与多家云服务商合作，确保新芯片能在各大平台上提供。这一发布标志着AI硬件竞争进入新阶段，为...</p>
-                <div class="actions">
-                    <a href="/news/94" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(94)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 05:00</h3>
-            <article class="news-item">
-                <a href="/news/85">Physical AI is having its moment–and everyone wants a piece of it</a>
-                <p class="desc">物理AI（Physical AI）正迎来它的时刻。Physical AI不仅处理数据或生成内容，还能感知、推理并在现实世界中行动——包括机器人、自动驾驶汽车和适应性机器。Nvidia CEO黄仁勋在1月的CES上称之为"机器人的ChatGPT时刻"，标志着该技术从研究环境转向主流商业部署，正在从硅谷...</p>
-                <div class="actions">
-                    <a href="/news/85" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(85)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 05:00</h3>
-            <article class="news-item">
-                <a href="/news/86">AI agents prefer Bitcoin shaping new finance architecture</a>
-                <p class="desc">当AI系统获得经济自主权时，其内部逻辑决定企业资本的流动方式。比特币政策研究所的独立研究评估了这些前沿模型作为独立经济行为者时的交易行为。该研究测试了来自六个提供商（包括Google、Anthropic和OpenAI）的36个模型，在9,072个中立货币场景中，机器在48.3%的响应中选择了比特币，...</p>
-                <div class="actions">
-                    <a href="/news/86" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(86)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 05:00</h3>
-            <article class="news-item">
-                <a href="/news/87">Google makes its industrial robotics AI play official–and this time, it means business</a>
-                <p class="desc">2月25日，Alphabet旗下的Intrinsic正式加入Google。Intrinsic构建AI模型和软件，旨在让工业机器人更易于使用。该公司将作为Google内部的独立集团运营，与Google DeepMind密切合作，利用Gemini AI模型和Google Cloud。在表面上看，这像是一...</p>
-                <div class="actions">
-                    <a href="/news/87" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(87)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 05:00</h3>
-            <article class="news-item">
-                <a href="/news/88">The integration of AI in modern forex automation</a>
-                <p class="desc">AI在现代外汇自动化中的整合日益深入。讨论了AI技术如何改进外汇交易平台的功能，包括风险评估、市场预测和交易优化。文章强调了AI在提高交易效率、降低风险和增强决策能力方面的潜力，同时指出了在实施过程中需要注意的监管和伦理考量。...</p>
-                <div class="actions">
-                    <a href="/news/88" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(88)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 05:00</h3>
-            <article class="news-item">
-                <a href="/news/89">Physical AI adoption boosts customer service ROI</a>
-                <p class="desc">物理AI的采用显著提升了客户服务的投资回报率。研究表明，将机器人技术和AI集成到客户服务中的企业，在效率提升和成本节约方面获得了可观的回报。文章探讨了物理AI在客户服务中的应用场景，如智能客服机器人、自动问题解决系统和个性化服务交付，为企业提供了新的竞争优势。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/89" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(89)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 04:00</h3>
-            <article class="news-item">
-                <a href="/news/80">OpenAI推出GPT-5.3企业版专属协作平台</a>
-                <p class="desc">OpenAI发布GPT-5.3企业协作平台，专为大型组织设计。新平台提供企业级权限管理、审计日志和数据隔离功能，首次支持跨项目的AI知识库共享，可提升团队协作效率60%。...</p>
-                <div class="actions">
-                    <a href="/news/80" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(80)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 04:00</h3>
-            <article class="news-item">
-                <a href="/news/81">欧盟通过AI法案最终版本，2026年7月正式实施</a>
-                <p class="desc">欧盟议会正式通过《人工智能法案》最终版本，将于2026年7月全面实施。法案对高风险AI系统实施严格监管，要求所有生成式AI服务必须标注AI生成内容，并建立独立监管机构。...</p>
-                <div class="actions">
-                    <a href="/news/81" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(81)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 04:00</h3>
-            <article class="news-item">
-                <a href="/news/82">苹果发布新款M5芯片，AI性能提升80%</a>
-                <p class="desc">苹果推出新一代M5芯片，集成专用神经网络引擎，AI性能较M4提升80%，功耗降低40%。新芯片首次支持端到端的多模态AI处理，无需云端连接即可运行复杂AI任务。...</p>
-                <div class="actions">
-                    <a href="/news/82" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(82)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 04:00</h3>
-            <article class="news-item">
-                <a href="/news/83">DeepMind发布AlphaFold 3蛋白质相互作用预测功能</a>
-                <p class="desc">Google DeepMind扩展AlphaFold 3功能，新增蛋白质-蛋白质相互作用预测能力。该突破可加速药物研发，预测两种蛋白质如何结合以及结合后的结构变化，准确率达到92%。...</p>
-                <div class="actions">
-                    <a href="/news/83" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(83)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 04:00</h3>
-            <article class="news-item">
-                <a href="/news/84">亚马逊发布Alexa AI个性化助手，可学习用户习惯</a>
-                <p class="desc">亚马逊推出Alexa AI个性化助手版本，采用新的大语言模型架构，能够通过长期对话学习用户偏好和习惯。新版本支持跨设备记忆，可自动预测并执行日常任务，如预订会议、管理智能家居等。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/84" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(84)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 03:00</h3>
-            <article class="news-item">
-                <a href="/news/75">OpenAI发布GPT-5.3多模态API正式版</a>
-                <p class="desc">OpenAI宣布GPT-5.3多模态API正式上线，支持文本、图像、音频、视频的实时交互。新API在视觉理解任务上准确率提升25%，同时价格降低30%。...</p>
-                <div class="actions">
-                    <a href="/news/75" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(75)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 03:00</h3>
-            <article class="news-item">
-                <a href="/news/76">Google DeepMind推出AlphaCode 2.0</a>
-                <p class="desc">DeepMind发布AlphaCode 2.0编程助手，代码生成准确率比前代提升40%，新增代码审查、重构建议和性能优化功能。支持Python、JavaScript、Rust等20种编程语言。...</p>
-                <div class="actions">
-                    <a href="/news/76" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(76)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 03:00</h3>
-            <article class="news-item">
-                <a href="/news/77">微软365 Copilot Agent增强版发布</a>
-                <p class="desc">微软发布365 Copilot Agent增强版，能够自动理解用户工作流程，预测下一步操作。新增跨应用任务编排、数据分析洞察和团队协作建议功能。...</p>
-                <div class="actions">
-                    <a href="/news/77" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(77)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 03:00</h3>
-            <article class="news-item">
-                <a href="/news/78">英伟 cuDNN 9.0发布</a>
-                <p class="desc">NVIDIA发布cuDNN 9.0深度学习加速库，针对Transformer架构优化，训练速度提升45%，推理延迟降低35%。支持最新的GPU架构和混合精度训练。...</p>
-                <div class="actions">
-                    <a href="/news/78" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(78)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 03:00</h3>
-            <article class="news-item">
-                <a href="/news/79">MIT发布AI可解释性新方法</a>
-                <p class="desc">MIT研究团队开发出新的AI可解释性方法，能够可视化大语言模型的注意力机制和决策过程。该方法帮助开发者理解模型为何做出特定预测。
-
----
-
----...</p>
-                <div class="actions">
-                    <a href="/news/79" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(79)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 02:00</h3>
-            <article class="news-item">
-                <a href="/news/70">深度学习论文：大规模自监督学习在医疗影像的应用</a>
-                <p class="desc">研究人员发布新论文，提出了一种新的自监督学习框架，在医疗影像标注稀缺的情况下达到了专家级诊断准确率。该方法在X光片、CT扫描数据集上表现优异。...</p>
-                <div class="actions">
-                    <a href="/news/70" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(70)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 02:00</h3>
-            <article class="news-item">
-                <a href="/news/71">AI芯片初创公司SambaNova推出新推理加速器</a>
-                <p class="desc">SambaNova发布新一代AI推理加速器，针对大语言模型优化，推理速度提升3倍，功耗降低50%。该加速器支持FP8精度量化，在保持精度的同时显著提高效率。...</p>
-                <div class="actions">
-                    <a href="/news/71" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(71)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 02:00</h3>
-            <article class="news-item">
-                <a href="/news/72">特斯拉FSD v13引入端到端神经网络</a>
-                <p class="desc">特斯拉更新全自动驾驶系统至v13版本，采用全新的端到端神经网络架构，直接从摄像头输入输出方向盘指令。新系统在复杂路况下的决策准确率提升20%。...</p>
-                <div class="actions">
-                    <a href="/news/72" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(72)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 02:00</h3>
-            <article class="news-item">
-                <a href="/news/73">英伟达发布TensorRT-LLM v8.0</a>
-                <p class="desc">英伟达发布TensorRT-LLM 8.0版本，新增对Mistral、Qwen等开源模型的优化支持。新版本推理延迟降低35%，吞吐量提升40%，同时支持动态批处理。...</p>
-                <div class="actions">
-                    <a href="/news/73" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(73)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 02:00</h3>
-            <article class="news-item">
-                <a href="/news/74">斯坦福大学发布AI伦理评估框架</a>
-                <p class="desc">斯坦福大学发布新版AI伦理评估框架，提供了10个维度的AI系统伦理评估标准，包括公平性、透明度、可解释性、安全性等。该框架被多家科技公司采用。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/74" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(74)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 01:00</h3>
-            <article class="news-item">
-                <a href="/news/65">Meta AI Research推出Llama 4多模态研究版</a>
-                <p class="desc">Meta AI Research发布Llama 4多模态研究版本，支持文本/图像/音频/视频的联合理解。新模型在视觉问答任务中达到GPT-4V水平，同时代码处理能力提升30%。...</p>
-                <div class="actions">
-                    <a href="/news/65" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(65)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 01:00</h3>
-            <article class="news-item">
-                <a href="/news/66">Amazon Bedrock新增AI模型自动微调功能</a>
-                <p class="desc">AWS Bedrock推出模型自动微调功能，使用户无需手动调参即可快速将预训练模型适配到特定领域。该功能支持OpenAI、Anthropic、Meta等主流公司的模型。...</p>
-                <div class="actions">
-                    <a href="/news/66" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(66)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 01:00</h3>
-            <article class="news-item">
-                <a href="/news/67">微软发布Agent Framework 2.0</a>
-                <p class="desc">微软发布Agent Framework 2.0，大幅简化多智能体系统的开发流程。新框架内置了任务分解、错误恢复和智能体协作算法，可降低85%的代码编写量。...</p>
-                <div class="actions">
-                    <a href="/news/67" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(67)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 01:00</h3>
-            <article class="news-item">
-                <a href="/news/68">DeepMind发布AlphaFold 3蛋白质设计版</a>
-                <p class="desc">DeepMind发布AlphaFold 3，不仅能预测蛋白质结构，还能主动设计和优化新蛋白质序列。新版本在药物设计、酶工程等领域展现了巨大潜力。...</p>
-                <div class="actions">
-                    <a href="/news/68" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(68)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 01:00</h3>
-            <article class="news-item">
-                <a href="/news/69">阿里巴巴云推出AI视频生成服务</a>
-                <p class="desc">阿里巴巴云发布基于Qwen模型的视频生成服务，支持文本到视频、图像到视频生成。该服务可生成最长30秒的高清视频，成本较竞品降低60%。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/69" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(69)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 00:00</h3>
-            <article class="news-item">
-                <a href="/news/60">GitHub Copilot Enterprise推出新安全扫描功能</a>
-                <p class="desc">GitHub宣布其企业版Copilot推出新的安全扫描功能，能够自动检测AI生成代码中的潜在安全漏洞，包括SQL注入、XSS攻击等常见安全问题。...</p>
-                <div class="actions">
-                    <a href="/news/60" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(60)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 00:00</h3>
-            <article class="news-item">
-                <a href="/news/61">Google发布Gemini 3.1 Flash多模态版本</a>
-                <p class="desc">Google发布Gemini 3.1 Flash的多模态版本，支持同时处理文本、图像和音频输入，响应速度提升50%，成本降低40%。新版本特别优化了实时视频分析和医疗影像诊断场景。...</p>
-                <div class="actions">
-                    <a href="/news/61" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(61)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 00:00</h3>
-            <article class="news-item">
-                <a href="/news/62">Anthropic推出Claude自动工作流引擎</a>
-                <p class="desc">Anthropic发布Claude自动工作流引擎，允许用户通过自然语言描述创建复杂的自动化任务链，无需编程知识即可连接多个API和数据源。...</p>
-                <div class="actions">
-                    <a href="/news/62" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(62)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 00:00</h3>
-            <article class="news-item">
-                <a href="/news/63">苹果Siri AI功能升级至iOS 18.2</a>
-                <p class="desc">苹果在iOS 18.2中大幅升级Siri的AI能力，新增智能家居控制、跨应用任务协同和个性化学习功能。Siri现可理解更复杂的上下文和用户意图。...</p>
-                <div class="actions">
-                    <a href="/news/63" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(63)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-05 00:00</h3>
-            <article class="news-item">
-                <a href="/news/64">OpenAI开源GPT-5.3小参数模型</a>
-                <p class="desc">OpenAI宣布开源GPT-5.3系列的小参数模型（1B/3B/7B），专为边缘设备优化。这些模型在保持良好性能的同时，显著降低了部署门槛和成本。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/64" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(64)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 22:00</h3>
-            <article class="news-item">
-                <a href="/news/56">The vibe coders are coming for the App Store, one super tiny tool at a time</a>
-                <p class="desc">氛围程序员正在逐渐攻占App Store，他们一次开发一个超级微小的工具。这类AI驱动的极简工具通过Vibe Coding方式快速构建。...</p>
-                <div class="actions">
-                    <a href="/news/56" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(56)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 22:00</h3>
-            <article class="news-item">
-                <a href="/news/57">The Pro-Human Declaration has been signed by the AFL-CIO</a>
-                <p class="desc">支持人类的宣言已获得AFL-CIO（美国劳工联合会-产业工会联合会）、基督教领袖大会、美国进步民主党人以及史蒂夫·班农等签署。这是关于人工智能与人类关系的重大集体行动。...</p>
-                <div class="actions">
-                    <a href="/news/57" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(57)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 22:00</h3>
-            <article class="news-item">
-                <a href="/news/58">Meta’s AI shopping tool</a>
-                <p class="desc">Meta也在测试AI购物工具，目前已在美国向测试用户推出，旨在与ChatGPT和Gemini的类似功能竞争。...</p>
-                <div class="actions">
-                    <a href="/news/58" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(58)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 22:00</h3>
-            <article class="news-item">
-                <a href="/news/59">Sam Altman关于OpenAI与五角大楼协议更新</a>
-                <p class="desc">OpenAI CEO Sam Altman计划在与五角大楼的协议中增加两句话。他概述了一些希望解决人们对大规模国内监控担忧的新措辞，尽管新语言仍包含"符合适用法律"的措辞。Altman还重申，Anthropic不应被指定为供应链风险。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/59" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(59)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/49">Agentic Engineering Patterns</a>
-                <p class="desc">智能体工程的模式文档。讨论AI智能体架构设计和开发模式，帮助开发者构建更高效的AI代理系统。...</p>
-                <div class="actions">
-                    <a href="/news/49" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(49)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/50">A CPU that runs entirely on GPU</a>
-                <p class="desc">一个完全在GPU上运行的CPU项目，探索图形处理器的硬件加速选项，可能加速AI推理任务。...</p>
-                <div class="actions">
-                    <a href="/news/50" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(50)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/51">RFC 9849. TLS Encrypted Client Hello</a>
-                <p class="desc">RFC 9849定义TLS加密的客户端问候扩展协议，提升加密通信安全性和隐私保护。...</p>
-                <div class="actions">
-                    <a href="/news/51" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(51)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/52">Show HN: Rust compiler in PHP emitting x86-64 executables</a>
-                <p class="desc">Rust编译器为PHP生成x86-64可执行文件，支持AI应用在PHP环境中运行。这可能影响AI应用在传统Web环境中的部署。...</p>
-                <div class="actions">
-                    <a href="/news/52" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(52)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/53">Just Send the Prompt</a>
-                <p class="desc">AI提示词简化工具，让用户专注于发送提示，降低使用门槛。...</p>
-                <div class="actions">
-                    <a href="/news/53" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(53)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/54">I made a zero-copy coroutine tracer to find my scheduler's lost wakeups</a>
-                <p class="desc">零拷贝协程追踪器，用于调试调度器的"丢失唤醒"问题。帮助开发者定位性能问题的根源。...</p>
-                <div class="actions">
-                    <a href="/news/54" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(54)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 18:00</h3>
-            <article class="news-item">
-                <a href="/news/55">Better JIT for Postgres</a>
-                <p class="desc">PostgreSQL即时编译（JIT）的改进，优化数据库性能，可能对AI应用的后端存储和查询优化有影响。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/55" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(55)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 17:00</h3>
-            <article class="news-item">
-                <a href="/news/46">OpenAI is developing a GitHub rival</a>
-                <p class="desc">OpenAI正在开发GitHub竞争对手。受近期GitHub宕机影响，OpenAI处于早期开发内部代码仓库的阶段，完成可能还需要几个月的时间。公司考虑向OpenAI客服提供该服务，使ChatGPT创建者直接与微软竞争——微软持有OpenAI的大部分股份。...</p>
-                <div class="actions">
-                    <a href="/news/46" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(46)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 17:00</h3>
-            <article class="news-item">
-                <a href="/news/47">OpenAI says ChatGPT's new update adds more context to search results</a>
-                <p class="desc">OpenAI宣布ChatGPT的新更新增加了更多搜索结果的上下文。新的GPT-5.3-Instant模型现在更准确，理解问题上下文，减少了不必要的死胡同、警告和过于声明性的措辞。...</p>
-                <div class="actions">
-                    <a href="/news/47" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(47)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 17:00</h3>
-            <article class="news-item">
-                <a href="/news/48">Protesters plan to gather outside OpenAI's offices today to protest its Pentagon deal</a>
-                <p class="desc">抗议者计划在OpenAI办公室外集会，抗议其与五角大楼的交易。活动的重点是AI驱动的大规模国内监控和致命自主武器。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/48" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(48)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 16:00</h3>
-            <article class="news-item">
-                <a href="/news/45">Best AI security solutions 2026: Top enterprise platforms compared</a>
-                <p class="desc">2026年最佳AI安全解决方案对比文章，比较顶级企业平台。提供企业AI安全工具的选择指南和评测，帮助企业评估和选择合适的AI安全方案。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/45" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(45)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 15:00</h3>
-            <article class="news-item">
-                <a href="/news/42">Google reveals Nano Banana 2 AI image model, coming to Gemini today</a>
-                <p class="desc">Google发布了Nano Banana 2 AI图像模型，立即在Gemini中上线。新模型承诺提供闪电般的生产级结果，替代之前的所有版本。...</p>
-                <div class="actions">
-                    <a href="/news/42" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(42)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 15:00</h3>
-            <article class="news-item">
-                <a href="/news/43">Musk has no proof OpenAI stole xAI trade secrets, judge rules, tossing lawsuit</a>
-                <p class="desc">法官裁定马斯克没有证据证明OpenAI窃取了xAI的商业机密，驳回了诉讼。即使用扭曲前员工的文本来偏袒xAI的看法也无法说服法官。...</p>
-                <div class="actions">
-                    <a href="/news/43" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(43)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 15:00</h3>
-            <article class="news-item">
-                <a href="/news/44">Google announces Gemini 3.1 Pro, says it's better at complex problem-solving</a>
-                <p class="desc">Google宣布Gemini 3.1 Pro，声称在复杂问题解决方面表现更好。Google表示3.1 Pro已经准备好应对"你最困难的挑战"。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/44" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(44)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 14:00</h3>
-            <article class="news-item">
-                <a href="/news/39">Voxile: A ray-traced game made in its own engine and programming language</a>
-                <p class="desc">Voxile是一个用自己引擎和编程语言构建的光线追踪游戏，现在发布了重大更新。展示了从头构建游戏引擎的技术可能性。...</p>
-                <div class="actions">
-                    <a href="/news/39" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(39)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 14:00</h3>
-            <article class="news-item">
-                <a href="/news/40">TorchLean: Formalizing Neural Networks in Lean</a>
-                <p class="desc">TorchLean是将神经网络在Lean定理证明器中形式化的项目，为神经网络提供数学证明级别的验证，确保AI模型的安全性。...</p>
-                <div class="actions">
-                    <a href="/news/40" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(40)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 14:00</h3>
-            <article class="news-item">
-                <a href="/news/41">Weave – A language aware merge algorithm based on entities</a>
-                <p class="desc">Weave是基于实体的感知语言合并算法，创新的Git或代码合并工具，提升代码合并的准确性和效率。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/41" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(41)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 13:00</h3>
-            <article class="news-item">
-                <a href="/news/35">Just Send the Prompt</a>
-                <p class="desc">一个简化的提示词管理工具，让用户专注于发送提示，而不是复杂的设置。降低AI使用门槛。...</p>
-                <div class="actions">
-                    <a href="/news/35" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(35)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 13:00</h3>
-            <article class="news-item">
-                <a href="/news/36">Weave – A language aware merge algorithm based on entities</a>
-                <p class="desc">基于实体的感知语言的合并算法。Git或代码合并工具的创新，提升代码合并的准确性和效率。...</p>
-                <div class="actions">
-                    <a href="/news/36" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(36)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 13:00</h3>
-            <article class="news-item">
-                <a href="/news/37">Mac external displays for designers and developers, part 2</a>
-                <p class="desc">针对设计师和开发者的Mac外接显示器指南第二部分，涉及AI辅助的显示校准和色彩管理。...</p>
-                <div class="actions">
-                    <a href="/news/37" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(37)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 13:00</h3>
-            <article class="news-item">
-                <a href="/news/38">Don't become an engineering manager</a>
-                <p class="desc">职业建议文章，讨论工程师到管理者的转变。在AI时代，技术领导力的角色定义变化。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/38" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(38)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 11:00</h3>
-            <article class="news-item">
-                <a href="/news/30">When AI writes the software, who verifies it?</a>
-                <p class="desc">讨论 AI 生成的软件验证问题。当 AI 可以编写代码时，谁来验证其正确性和安全性？引发了关于 AI 辅助编程责任的讨论。...</p>
-                <div class="actions">
-                    <a href="/news/30" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(30)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 11:00</h3>
-            <article class="news-item">
-                <a href="/news/31">Show HN: AgentBus – Centralized AI Agent-to-Agent Messaging via REST API</a>
-                <p class="desc">展示了一个名为 AgentBus 的项目，提供集中式的 AI 智能体到智能体的消息传递服务，通过 REST API 实现 AI 智能体之间的通信。...</p>
-                <div class="actions">
-                    <a href="/news/31" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(31)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 11:00</h3>
-            <article class="news-item">
-                <a href="/news/32">TorchLean: Formalizing Neural Networks in Lean</a>
-                <p class="desc">TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/32" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(32)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 11:00</h3>
-            <article class="news-item">
-                <a href="/news/33">Alibaba's Qwen tech lead steps down after major AI push</a>
-                <p class="desc">阿里巴巴的通义千问（Qwen）大模型团队领导层变动。Alibaba's Qwen技术负责人在重大AI推动后辞职。...</p>
-                <div class="actions">
-                    <a href="/news/33" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(33)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 11:00</h3>
-            <article class="news-item">
-                <a href="/news/34">ChatGPT's new GPT-5.3 Instant model will stop telling you to calm down</a>
-                <p class="desc">ChatGPT的新GPT-5.3 Instant模型将不再告诉用户"冷静下来"。OpenAI对GPT-5.3 Instant模型的更新，减少了模型的过度说教式回应。
-
----
----...</p>
-                <div class="actions">
-                    <a href="/news/34" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(34)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/20">Google's latest Pixel drop allows Gemini to order groceries for you and more</a>
-                <p class="desc">Pixel 10 用户现在可以使用 Circle to Search 功能来拆解 outfit 并搜索单品，Google Gemini 还可以直接订购杂货和其他商品。...</p>
-                <div class="actions">
-                    <a href="/news/20" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(20)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/21">Meta's also got an AI shopping tool</a>
-                <p class="desc">Meta 正在为美国测试者推出 AI 购物工具，与 ChatGPT 和 Gemini 中的类似功能竞争。...</p>
-                <div class="actions">
-                    <a href="/news/21" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(21)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/22">The Xbox Ally X now lets you let AI record your screen and cut together highlight reels</a>
-                <p class="desc">Xbox Ally X 手持设备集成 NPU，可以自动录制游戏画面并使用 Copilot 生成"精彩集锦"短片。目前支持 Among Us、Elden Ring、Fortnite、Forza Horizon 5、Lies of P、Overwatch 和 Palworld 等。...</p>
-                <div class="actions">
-                    <a href="/news/22" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(22)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/23">AI-generated art can't be copyrighted after Supreme Court declines to review the rule</a>
-                <p class="desc">最高法院拒绝审查 AI 生成艺术作品版权规则，意味着 AI 生成的内容无法获得版权保护。...</p>
-                <div class="actions">
-                    <a href="/news/23" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(23)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/24">Nvidia's spending $4 billion on photonics to stay ahead of the curve in AI</a>
-                <p class="desc">Nvidia 花费 40 亿美元投资光子学技术，以保持在 AI 领域的领先地位。...</p>
-                <div class="actions">
-                    <a href="/news/24" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(24)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/25">COBOL modernisation just got an AI shortcut–and the market noticed</a>
-                <p class="desc">COBOL 现代化获得了 AI 快捷方式，市场对此表示关注。...</p>
-                <div class="actions">
-                    <a href="/news/25" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(25)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/26">Mastercard's AI payment demo points to agent-led commerce</a>
-                <p class="desc">Mastercard 的 AI 支付演示指向由智能体引导的电子商务，展示了 AI 智能体在支付领域的应用潜力。...</p>
-                <div class="actions">
-                    <a href="/news/26" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(26)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/27">Hitachi bets on industrial expertise to win the physical AI race</a>
-                <p class="desc">日立公司押注工业专业知识，希望在物理 AI（Physical AI）竞赛中胜出，展示了制造业 AI 应用的竞争态势。...</p>
-                <div class="actions">
-                    <a href="/news/27" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(27)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/28">Upgrading agentic AI for finance workflows</a>
-                <p class="desc">为金融工作流程升级智能体 AI，以提高业务效率和准确性。...</p>
-                <div class="actions">
-                    <a href="/news/28" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(28)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 10:00</h3>
-            <article class="news-item">
-                <a href="/news/29">Poor implementation of AI may be behind workforce reduction</a>
-                <p class="desc">Datatonic 称，AI 工作流程中的不当实施可能是导致员工减少的原因，强调了"人在回路中"（human-in-the-loop）的重要性。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/29" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(29)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 07:00</h3>
-            <article class="news-item">
-                <a href="/news/15">LLMs can unmask pseudonymous users at scale with surprising accuracy</a>
-                <p class="desc">研究表明，大语言模型能够在大规模范围内以惊人的精度识别匿名用户的真实身份。匿名身份从来就不是保护隐私的完美方案，随着 AI 技术的发展，匿名可能将变得毫无意义，这对在线隐私保护提出了新的挑战。...</p>
-                <div class="actions">
-                    <a href="/news/15" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(15)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 07:00</h3>
-            <article class="news-item">
-                <a href="/news/16">Databricks Has a Trick That Lets AI Models Improve Themselves No Labels Required</a>
-                <p class="desc">Databricks 开发了一种新技术，让 AI 模型无需人类标注的标签就能自我改进。这项名为 DAB（Domain Adaptive Pretraining）的技术，使模型能够从无标注数据中学习，大幅降低了 AI 训练的成本和门槛。...</p>
-                <div class="actions">
-                    <a href="/news/16" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(16)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 07:00</h3>
-            <article class="news-item">
-                <a href="/news/17">Anthropic Launches the World's First 'Hybrid Reasoning' AI Model</a>
-                <p class="desc">Anthropic 发布了世界首个"混合推理" AI 模型，该模型结合了快速推理和深度思考两种模式，能够在需要详细分析的复杂问题上保持深度思考，同时保持快速响应的能力。这一创新据称显著提升了模型处理复杂任务时的一致性和可靠性。...</p>
-                <div class="actions">
-                    <a href="/news/17" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(17)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 07:00</h3>
-            <article class="news-item">
-                <a href="/news/18">Boston Dynamics Led a Robot Revolution. Now Its Machines Are Teaching Themselves New Tricks</a>
-                <p class="desc">Boston Dynamics 的机器人现在正在自主学习新技能。通过先进的机器学习算法，机器狗 Atlas 能够通过试错法掌握新的运动技巧和任务执行方式，不再需要人类程序员手动编写每一个动作，这标志着机器人学习能力的重大突破。...</p>
-                <div class="actions">
-                    <a href="/news/18" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(18)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 07:00</h3>
-            <article class="news-item">
-                <a href="/news/19">OnlyFans Models Are Using AI Impersonators to Keep Up With Their DMs</a>
-                <p class="desc">OnlyFans 创作者开始使用 AI 冒充者来处理与粉丝的私信交流。这些 AI 模型经过训练，能够模仿创作者的说话风格和个性，与粉丝进行看似真实的对话，使得创作者能够同时与更多粉丝互动，而不必亲自回复每一条消息。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/19" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(19)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 06:00</h3>
-            <article class="news-item">
-                <a href="/news/10">Google releases Gemini 3.1 Flash Lite at 1/8th the cost of Pro</a>
-                <p class="desc">Google 发布 Gemini 3.1 Flash Lite，成本仅为 Pro 版本的 1/8。新模型专注于处理大量日常任务，如翻译、标签化和内容审核，能够在不依赖重型推理计算的情况下提供一致、可重复的结果，大幅降低计算开销。...</p>
-                <div class="actions">
-                    <a href="/news/10" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(10)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 06:00</h3>
-            <article class="news-item">
-                <a href="/news/11">GPT-5.3 Instant cuts hallucinations by 26.8% as OpenAI shifts focus from speed to accuracy</a>
-                <p class="desc">GPT-5.3 Instant 将幻觉率降低了 26.8%，OpenAI 正将其最常用的模型从侧重性能转向侧重准确性。这一重大改进旨在提高模型输出的可靠性和事实正确性，减少虚构内容的产生。...</p>
-                <div class="actions">
-                    <a href="/news/11" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(11)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 06:00</h3>
-            <article class="news-item">
-                <a href="/news/12">Alibaba's small, open source Qwen3.5-9B beats OpenAI's gpt-oss-120B and can run on standard laptops</a>
-                <p class="desc">阿里巴巴的小型开源模型 Qwen3.5-9B 性能超越了 OpenAI 的 gpt-oss-120B，并且可以在标准笔记本电脑上运行。从 0.8B 智能手机模型到 9B 编码终端模型，Qwen3.5 系列正在推动"代理时代"的民主化。...</p>
-                <div class="actions">
-                    <a href="/news/12" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(12)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 06:00</h3>
-            <article class="news-item">
-                <a href="/news/13">Endor Labs launches free tool AURI after study finds only 10% of AI-generated code is secure</a>
-                <p class="desc">卡内基梅隆大学、哥伦比亚大学和约翰霍普金斯大学的研究显示，顶尖 AI 模型产生的代码只有约 61% 是功能正确的，而其中只有 10% 既功能正确又安全。Endor Labs 因此推出了免费工具 AURI 来检测和修复 AI 生成代码的安全漏洞。...</p>
-                <div class="actions">
-                    <a href="/news/13" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(13)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 06:00</h3>
-            <article class="news-item">
-                <a href="/news/14">AI companies are spending millions to thwart this former tech exec's congressional bid</a>
-                <p class="desc">AI 公司花费数百万美元试图阻止一位前科技公司高管竞选国会议员。这反映了科技行业对潜在监管政策的担忧，以及对可能影响 AI 发展方向的政治力量的抵制。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/14" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(14)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 05:00</h3>
-            <article class="news-item">
-                <a href="/news/5">The US used Anthropic AI for strikes in Iran despite ban</a>
-                <p class="desc">尽管特朗普总统宣布禁止联邦政府使用 Anthropic 的 Claude AI，但美国在周六对伊朗的打击行动中仍使用该技术进行情报评估和目标识别。报道称，在禁令发布的几小时内，特朗普就发动了重大空袭，而这些行动正是依靠 Claude AI 支持的。...</p>
-                <div class="actions">
-                    <a href="/news/5" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(5)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 05:00</h3>
-            <article class="news-item">
-                <a href="/news/6">Santander and Mastercard run Europe's first AI-executed payment pilot</a>
-                <p class="desc">西班牙桑坦德银行和万事达卡合作开展了欧洲首个 AI 执行的支付试点项目。该项目展示了 AI 智能体在金融交易中的自动化应用能力，标志着金融行业向自主代理支付迈出重要一步。...</p>
-                <div class="actions">
-                    <a href="/news/6" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(6)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 05:00</h3>
-            <article class="news-item">
-                <a href="/news/7">AI-Native networks are no longer a 6G promise–MWC 2026 just proved it</a>
-                <p class="desc">在 2026 年世界移动通信大会（MWC）上，AI 原生网络技术得到验证，证明 AI 与 6G 的融合不再是未来的承诺。多个电信运营商展示了如何将 AI 深度集成到网络基础设施中，实现智能化的网络管理和服务优化。...</p>
-                <div class="actions">
-                    <a href="/news/7" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(7)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 05:00</h3>
-            <article class="news-item">
-                <a href="/news/8">Meta's AI smart glasses and data privacy concerns</a>
-                <p class="desc">Meta 的 AI 智能眼镜引发数据隐私担忧。据报道，员工表示"我们可以看到一切"，这引发了对用户隐私和监控的广泛讨论。该话题在 Hacker News 上获得超过 1300 个点赞，引发大量评论。...</p>
-                <div class="actions">
-                    <a href="/news/8" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(8)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 05:00</h3>
-            <article class="news-item">
-                <a href="/news/9">Anthropic upgrades Claude's memory to attract AI switchers</a>
-                <p class="desc">Anthropic 升级了 Claude 的记忆功能，允许用户导入对话历史和跨会话记忆。这一功能旨在吸引从 ChatGPT 等其他 AI 服务切换过来的用户，提供更连贯的对话体验和个性化服务。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/9" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(9)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 04:00</h3>
-            <article class="news-item">
-                <a href="/news/1">OpenAI says ChatGPT's new update adds more context to search results</a>
-                <p class="desc">OpenAI 推出新的 GPT-5.3-Instant 模型，旨在提高准确性、更好地理解问题上下文，并减少"不必要的死胡同、警告和过于声明性的措辞"。更新还解决了 5.2-Instant 模型"显得过度强势或对用户意图或情绪做出无根据假设"的问题。...</p>
-                <div class="actions">
-                    <a href="/news/1" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(1)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 04:00</h3>
-            <article class="news-item">
-                <a href="/news/2">Protesters plan to gather outside OpenAI's offices today to protest its Pentagon deal</a>
-                <p class="desc">抗议者计划在 OpenAI 办公室外集会，抗议其与五角大楼的交易。抗议活动由 QuitGPT 组织，重点关注 AI 驱动的大规模国内监控和致命自主武器。该草根活动声称已激励超过 150 万人采取相关行动。...</p>
-                <div class="actions">
-                    <a href="/news/2" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(2)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 04:00</h3>
-            <article class="news-item">
-                <a href="/news/3">Claude Code rolls out a voice mode capability</a>
-                <p class="desc">Anthropic 的 Claude Code 推出语音模式功能，为开发者提供语音交互体验。...</p>
-                <div class="actions">
-                    <a href="/news/3" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(3)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-        <section class="news-section">
-            <h3 class="time-header">🕐 2026-03-04 04:00</h3>
-            <article class="news-item">
-                <a href="/news/4">ChatGPT uninstalls surged by 295% after DoD deal</a>
-                <p class="desc">在与美国国防部达成协议后，ChatGPT 应用卸载量激增 295%，反映了用户对 AI 军事应用的担忧。
-
----...</p>
-                <div class="actions">
-                    <a href="/news/4" class="read-more">阅读全文 →</a>
-                    <span onclick="shareArticle(4)" class="share-btn">📤 分享</span>
-                </div>
-            </article>
-        </section>
-        
-    </main>
+--...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 17:00</span>
+                <span>🔖 #166</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/155" class="news-title">DeepMind的AlphaFold 6正式发布，新增复合蛋白质设计</a>
+            <div class="news-desc">Google DeepMind正式发布AlphaFold 6，新增复合蛋白质设计功能。该系统能够设计由多个蛋白质分子组成的复合体结构，预测它们的结合方式和相互作用。同时设计每个组分的属性和功能。测试显...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #155</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/156" class="news-title">特斯拉FSD v14开始向早期测试用户推送</a>
+            <div class="news-desc">特斯拉宣布FSD v14开始向早期测试用户推送。FSD v14是首个被认证为达到人类驾驶人水平的自动驾驶系统。测试用户将获得FSD v14的完整功能，包括城市街道导航、高速公路驾驶、自动泊车等。特斯拉...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #156</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/157" class="news-title">Meta推出Llama 5 Open-Release版本</a>
+            <div class="news-desc">Meta发布Llama 5开源版本。新模型包含100多个语言的训练数据，支持文本、图像、音频、视频等多模态任务。参数从7B到405B不等，满足不同规模需求。模型权重已在Hugging Face上发布，...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #157</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/158" class="news-title">百度发布文心大模型5参数达到5000亿</a>
+            <div class="news-desc">百度发布文心大模型5，参数达到5000亿参数。新模型在自然语言理解、知识问答和编程任务上刷新纪录。百度表示，文心系列模型已经超越GPT-4等开源模型的速度，具备强大的知识推理和对话能力。...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #158</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/159" class="news-title">OpenAI发布自定义GPT-5.3模型API</a>
+            <div class="news-desc">OpenAI正式推出自定义GPT-5.3模型API。开发者可以使用自己的数据微调模型，创建专用版本。API提供了完整的微调、评估和部署能力。企业可以使用自己的数据训练私有模型，完全控制数据权限。已集成...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #159</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/160" class="news-title">Amazon Bedrock 发布GenAI Marketplace（60+模型）</a>
+            <div class="news-desc">亚马逊AWS Bedrock GenAI市场扩展至60多个AI模型。新整合包括Anthropic Cohere 2.5、Meta Llama 5和Google Gemini 2.1 Ultra等。企业...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #160</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/161" class="news-title">三星Exynos V3 AI加速器性能测试</a>
+            <div class="news-desc">三星的Exynos V3 AI加速器进行性能测试，显示出在AI推理任务上性能提升50-60%，功耗降低30%。Exynos V3是三星最新的手机AI加速芯片，用于Galaxy S25和S25 Ultr...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 16:00</span>
+                <span>🔖 #161</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/135" class="news-title">OpenAI Announces GPT-5.3 'Turbo' Model for Enterprise Workflows</a>
+            <div class="news-desc">OpenAI发布GPT-5.3 Turbo专为企业工作流优化。新模型在重复性任务中的速度比GPT-5.3提高80%，特别适合代码生成、数据分析和文档处理等场景。Turbo版本还集成了新的工作流编排引擎...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #135</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/136" class="news-title">Google DeepMind's AlphaFold 5 Solves Complex Protein Design Challenges</a>
+            <div class="news-desc">Google DeepMind的AlphaFold 5解决了复杂的蛋白质设计挑战。新模型能够同时设计蛋白质序列的三维结构、稳定性和功能，准确率达到95%。测试显示，AlphaFold 5设计的蛋白质在...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #136</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/137" class="news-title">Meta AI Research Releases New Multi-Agent System for Scientific Discovery</a>
+            <div class="news-desc">Meta AI Research发布新的多智能体系统用于科学发现。该系统包含专门的角色：数据收集、假设生成、实验设计和结果分析。多个AI智能体协同工作，在材料科学和化学领域取得了突破性进展，快速发现了...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #137</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/138" class="news-title">Tesla's AI-Powered Energy Management System Saves 30% Grid</a>
+            <div class="news-desc">特斯拉的AI驱动的能源管理系统帮助电网节省了30%的能量。新系统通过预测能源需求和实时调度发电资源，优化了电力分配效率。特斯拉已将这套系统免费提供给加州电网管理部门，并计划扩展到其他地区。...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #138</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/139" class="news-title">Apple's On-Device L Enables Privacy-First AI Features</a>
+            <div class="news-desc">苹果发布全新的端侧AI（On-Device L）技术，强调隐私优先的设计理念。新架构使得Siri、照片编辑和搜索等所有AI功能都在设备本地运行，无需将用户数据上传到云端。测试显示，端侧AI的响应延迟降...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #139</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/140" class="news-title">OpenAI Announces GPT-5.3 'Turbo' Model for Enterprise Workflows</a>
+            <div class="news-desc">OpenAI发布GPT-5.3 Turbo专为企业工作流优化。新模型在重复性任务中的速度比GPT-5.3提高80%，特别适合代码生成、数据分析和文档处理等场景。Turbo版本还集成了新的工作流编排引擎...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #140</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/141" class="news-title">Google DeepMind's AlphaFold 5 Solves Complex Protein Design Challenges</a>
+            <div class="news-desc">Google DeepMind的AlphaFold 5解决了复杂的蛋白质设计挑战。新模型能够同时设计蛋白质序列的三维结构、稳定性和功能，准确率达到95%。测试显示，AphaFold 5设计的蛋白质在实...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #141</span>
+            </div>
+        </div>
+        
+        <div class="news-item">
+            <a href="/news/142" class="news-title">Meta AI Research Releases New Multi-Agent System for Scientific Discovery</a>
+            <div class="news-desc">Meta AI Research发布新的多智能体系统用于科学发现。该系统包含专门的角色：数据收集、假设生成、实验设计和结果分析。多个AI智能体协同工作，在材料科学和化学领域取得了突破性进展，快速发现了...</div>
+            <div class="news-meta">
+                <span>📅 2026-03-05 15:00</span>
+                <span>🔖 #142</span>
+            </div>
+        </div>
+        
+    </div>
     
-    <footer class="footer">
-        <p>&copy; 2026 AI前沿速递</p>
-        <p style="margin-top: 10px; opacity: 0.8;">
-            每篇新闻都可以独立访问，支持点赞和分享
-        </p>
-    </footer>
-    
-    <script>
-        // 分享功能
-        function shareArticle(newsId) {
-            const shareUrl = window.location.origin + '/news/' + newsId;
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                alert('文章链接已复制到剪贴板！\n\n' + shareUrl);
-            }).catch(() => {
-                alert('复制失败，请手动复制网址栏的链接');
-            });
-        }
-    </script>
+    <div class="footer">
+        <p>© 2026 AI前沿速递 | 共 166 条新闻</p>
+    </div>
 </body>
 </html>
+    

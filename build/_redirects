@@ -1,2 +1,10 @@
-/*  /index.html  200
-/news/* /news/:splat 200
+# URL重定向规则
+
+# 主页
+/ /index.html 200
+
+# 兼容旧链接（带斜杠）
+/news/ /index.html 200
+
+# 所有其他路径指向 404 页面
+/* /404.html 404

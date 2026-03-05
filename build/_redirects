@@ -1,10 +1,11 @@
-# URL重定向规则
+# Cloudflare Pages URL重定向规则
+# 修复错误: 10021 Infinite loop detected
 
-# 主页
-/ /index.html 200
+# 主页 - 永久重定向到 index.html
+/ /index.html 301
 
-# 兼容旧链接（带斜杠）
-/news/ /index.html 200
+# 兼容旧链接（带斜尾斜）重定向到主页
+/news/ /index.html 301
 
-# 所有其他路径指向 404 页面
-/* /404.html 404
+# 注意：Cloudflare Pages会自动为不存在的路径返回404
+# 不要使用 /* 通配符，会导致无限重定向循环

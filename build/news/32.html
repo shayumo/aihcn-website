@@ -4,27 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TorchLean: Formalizing Neural Networks in Lean - AI前沿速递</title>
-    <meta name="description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。
+    <meta name="description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。<br><br>---......">
 
----...">
-    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="TorchLean: Formalizing Neural Networks in Lean">
-    <meta property="og:description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。
-
----...">
+    <meta property="og:description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。<br><br>---......">
     <meta property="og:url" content="https://aihcn.com/news/32">
-    <meta property="article:published_time" content="2026-03-04T11:00:00">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TorchLean: Formalizing Neural Networks in Lean">
-    <meta name="twitter:description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。
+    <meta name="twitter:description" content="TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。<br><br>---......">
 
----...">
-    <meta name="twitter:url" content="https://aihcn.com/news/32">
-    
     <link rel="canonical" href="https://aihcn.com/news/32">
     <style>
         * {
@@ -32,20 +24,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             background: #f5f5f7;
             color: #1D1D1F;
         }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* 返回按钮 */
         .back-button {
             display: inline-block;
@@ -58,12 +50,12 @@
             font-size: 14px;
             transition: all 0.2s;
         }
-        
+
         .back-button:hover {
             background: #5856D6;
             transform: translateY(-2px);
         }
-        
+
         /* 文章头部 */
         .article-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -72,13 +64,13 @@
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .article-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
             line-height: 1.3;
         }
-        
+
         .article-meta {
             display: flex;
             justify-content: center;
@@ -86,33 +78,56 @@
             flex-wrap: wrap;
             opacity: 0.9;
         }
-        
+
         .meta-item {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
-        /* 文章内容 */
-        .article-content {
+
+        /* 三个章节通用样式 */
+        .article-section {
             background: white;
             padding: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
-        .article-description {
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section-content {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #333;
-            margin-bottom: 30px;
         }
-        
+
+        .overview-section .section-title {
+            border-bottom-color: #4CAF50;
+        }
+
+        .translation-section .section-title {
+            border-bottom-color: #2196F3;
+        }
+
+        .commentary-section .section-title {
+            border-bottom-color: #FF9800;
+        }
+
+        /* 外部链接 */
         .source-link {
-            display: block;
-            margin-top: 30px;
-            padding: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 20px;
             background: #f0f0f5;
             border-radius: 8px;
             text-decoration: none;
@@ -120,12 +135,51 @@
             font-weight: 500;
             transition: all 0.2s;
         }
-        
+
         .source-link:hover {
             background: #007AFF;
             color: white;
+            transform: translateY(-2px);
         }
-        
+
+        /* 点赞按钮 */
+        .like-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .like-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: 2px solid #FF6B6B;
+            background: white;
+            color: #FF6B6B;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .like-button:hover {
+            background: #FF6B6B;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .like-button.liked {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .like-count {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
         /* 分享栏 */
         .share-section {
             background: white;
@@ -134,21 +188,21 @@
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
+
         .share-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 20px;
             text-align: center;
         }
-        
+
         .share-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
         }
-        
+
         .share-button {
             padding: 12px 20px;
             border: none;
@@ -163,70 +217,18 @@
             align-items: center;
             gap: 8px;
         }
-        
-        .share-button.twitter {
-            background: #1DA1F2;
-        }
-        
-        .share-button.facebook {
-            background: #4267B2;
-        }
-        
-        .share-button.linkedin {
-            background: #0077B5;
-        }
-        
-        .share-button.weibo {
-            background: #E6162D;
-        }
-        
-        .share-button.copy {
-            background: #343539;
-        }
-        
+
+        .share-button.twitter { background: #1DA1F2; }
+        .share-button.facebook { background: #4267B2; }
+        .share-button.linkedin { background: #0077B5; }
+        .share-button.weibo { background: #E6162D; }
+        .share-button.copy { background: #343539; }
+
         .share-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        
-        /* 点赞按钮 */
-        .like-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .like-button {
-            padding: 15px 30px;
-            font-size: 18px;
-            border: 2px solid #FF6B6B;
-            background: white;
-            color: #FF6B6B;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-        
-        .like-button:hover {
-            background: #FF6B6B;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .like-button.liked {
-            background: #FF6B6B;
-            color: white;
-        }
-        
-        .like-count {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-        }
-        
+
         /* 导航 */
         .navigation {
             display: flex;
@@ -234,7 +236,7 @@
             margin-bottom: 40px;
             gap: 20px;
         }
-        
+
         .nav-link {
             flex: 1;
             padding: 15px;
@@ -246,66 +248,68 @@
             text-align: center;
             font-weight: 500;
         }
-        
+
         .nav-link:hover {
             background: #007AFF;
             color: white;
             transform: translateY(-2px);
         }
-        
+
         .nav-link.disabled {
             opacity: 0.3;
             pointer-events: none;
         }
-        
+
         /* 响应式 */
         @media (max-width: 600px) {
-            .article-title {
-                font-size: 1.5rem;
-            }
-            
-            .article-content {
-                padding: 20px;
-            }
-            
-            .share-section {
-                padding: 20px;
-            }
-            
-            .like-section {
-                flex-direction: column;
-            }
-            
-            .navigation {
-                flex-direction: column;
-            }
+            .article-title { font-size: 1.8rem; }
+            .article-section { padding: 20px; }
+            .share-section { padding: 20px; }
+            .like-section { flex-direction: column; }
+            .navigation { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <a href="/" class="back-button">← 返回首页</a>
-    
-    <div class="article-header">
-        <div class="container">
+    <div class="container">
+        <a href="/" class="back-button">← 返回首页</a>
+
+        <div class="article-header">
             <h1 class="article-title">TorchLean: Formalizing Neural Networks in Lean</h1>
             <div class="article-meta">
                 <span class="meta-item">📅 2026-03-04 11:00</span>
                 <span class="meta-item">🔖 ID: 32</span>
             </div>
         </div>
-    </div>
-    
-    <div class="container">
-        <div class="article-content">
-            <p class="article-description">TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。
 
----</p>
-            
+        <!-- 章节1: 新闻概述 -->
+        <div class="article-section overview-section">
+            <h2 class="section-title">📋 新闻概述</h2>
+            <div class="section-content">
+                TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。<br><br>---...
+            </div>
+        </div>
+
+        <!-- 章节2: 原文翻译 -->
+        <div class="article-section translation-section">
+            <h2 class="section-title">📄 原文翻译</h2>
+            <div class="section-content">
+                TorchLean 是一个将神经网络在 Lean 定理证明器中形式化的项目，为神经网络提供数学证明级别的验证。<br><br>---<br><br>**长期观察点**：这一领域的发展速度将继续加速，值得关注后续版本迭代。
+            </div>
+
             <a href="https://leandojo.org/torchlean.html" target="_blank" rel="noopener" class="source-link">
                 🔗 查看原始文章
             </a>
         </div>
-        
+
+        <!-- 章节3: AI点评 -->
+        <div class="article-section commentary-section">
+            <h2 class="section-title">💡 AI点评</h2>
+            <div class="section-content">
+                
+            </div>
+        </div>
+
         <!-- 点赞功能 -->
         <div class="like-section">
             <button class="like-button" onclick="handleLike()" data-news-id="32">
@@ -315,7 +319,7 @@
                 👍 <span id="like-count">0</span>
             </span>
         </div>
-        
+
         <!-- 分享功能 -->
         <div class="share-section">
             <h2 class="share-title">📤 分享文章</h2>
@@ -337,20 +341,19 @@
                 </button>
             </div>
         </div>
-        
+
         <!-- 导航 -->
         <div class="navigation">
             <a href="/news/33" class="nav-link">← 上一篇</a>
             <a href="/news/31" class="nav-link">下一篇 →</a>
         </div>
     </div>
-    
-    <!-- Worker API + localStorage备用方案 -->
+
     <script>
         const WORKER_API_URL = 'https://aihcn-website.workers.dev/api';
 
-        // 获取用户ID
-        function getUserId() {
+        function getUserId()
+        {
             let userId = localStorage.getItem('aihcn_user_id');
             if (!userId) {
                 userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -359,8 +362,8 @@
             return userId;
         }
 
-        // 点赞功能
-        async function handleLike() {
+        async function handleLike()
+        {
             const newsId = 32;
             const userId = getUserId();
             const button = document.querySelector('.like-button');
@@ -388,7 +391,6 @@
 
                 const data = await response.json();
 
-                // 更新UI
                 if (data.liked) {
                     button.classList.add('liked');
                     textEl.textContent = '已赞';
@@ -399,17 +401,17 @@
 
                 countEl.textContent = data.count || 0;
 
-            } catch (error) {
+            } catch (error)
+            {
                 console.error('API调用失败，降级到localStorage:', error);
-                // 降级到localStorage
                 fallbackToLocalLike(newsId, button, countEl, textEl);
             } finally {
                 button.disabled = false;
             }
         }
 
-        // 获取点赞数
-        async function getLikeCount() {
+        async function getLikeCount()
+        {
             const newsId = 32;
 
             try {
@@ -421,14 +423,15 @@
 
                 const data = await response.json();
                 return data.count || 0;
-            } catch (error) {
+            } catch (error)
+            {
                 console.error('获取点赞数失败，使用localStorage:', error);
                 return parseInt(localStorage.getItem(`news_like_${newsId}`) || '0');
             }
         }
 
-        // 检查是否已点赞
-        async function checkLike() {
+        async function checkLike()
+        {
             const newsId = 32;
             const userId = getUserId();
 
@@ -441,14 +444,15 @@
 
                 const data = await response.json();
                 return data.liked;
-            } catch (error) {
+            } catch (error)
+            {
                 console.error('检查点赞状态失败，使用localStorage:', error);
                 return localStorage.getItem(`liked_news_${newsId}`) === 'true';
             }
         }
 
-        // localStorage备用方案
-        function fallbackToLocalLike(newsId, button, countEl, textEl) {
+        function fallbackToLocalLike(newsId, button, countEl, textEl)
+        {
             const likes = JSON.parse(localStorage.getItem('ai_news_likes') || '{}');
 
             if (likes[newsId]) {
@@ -460,7 +464,6 @@
                 button.classList.add('liked');
                 textEl.textContent = '已赞';
 
-                // 添加动画效果
                 button.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     button.style.transform = 'scale(1)';
@@ -471,8 +474,8 @@
             countEl.textContent = likes[newsId];
         }
 
-        // 复制链接
-        function copyLink(url) {
+        function copyLink(url)
+        {
             navigator.clipboard.writeText(url).then(() => {
                 alert('链接已复制到剪贴板！');
             }).catch(err => {
@@ -480,20 +483,18 @@
             });
         }
 
-        // 页面加载时初始化
-        async function initPage() {
+        async function initPage()
+        {
             const button = document.querySelector('.like-button');
             const countEl = document.getElementById('like-count');
             const textEl = document.getElementById('like-text');
 
             try {
-                // 并行获取点赞数和点赞状态
                 const [count, isLiked] = await Promise.all([
                     getLikeCount(),
                     checkLike()
                 ]);
 
-                // 更新UI
                 if (isLiked) {
                     button.classList.add('liked');
                     textEl.textContent = '已赞';
@@ -501,9 +502,9 @@
 
                 countEl.textContent = count || 0;
 
-            } catch (error) {
+            } catch (error)
+            {
                 console.error('初始化页面失败，降级到localStorage:', error);
-                // 降级到localStorage
                 const likes = JSON.parse(localStorage.getItem('ai_news_likes') || '{}');
                 const newsId = 32;
                 if (likes[newsId] && likes[newsId] > 0) {
@@ -514,7 +515,6 @@
             }
         }
 
-        // DOM加载完成后初始化
         document.addEventListener('DOMContentLoaded', initPage);
     </script>
 </body>

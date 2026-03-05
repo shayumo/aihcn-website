@@ -1,16 +1,2 @@
-# URL重定向规则
-
-# 主页
-/ → /
-/news/ → /index.html
-
-# 新闻列表
-/news/ → /index.html
-/news/:slug/ → /index.html
-/news/* → /index.html
-
-# 404页面
-404.html → /404.html
-
-# root
-/ → /index.html
+/*  /index.html  200
+/news/* /news/:splat 200

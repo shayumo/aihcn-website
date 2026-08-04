@@ -36,6 +36,7 @@ jobs:
           echo "📢 临时域名: https://aihcn-website.pages.dev"
           echo ""
           echo "📊 网站信息:"
-          echo "   - 文章数量: $(find build/news/*.html 2>/dev/null | wc -l)"
+          echo "   - 页面数量: $(find build -name '*.html' | wc -l | tr -d ' ')"
           echo "   - 主页存在: $([ -f build/index.html ] && echo '✅' || echo '❌')"
           echo "   - 404页面: $([ -f build/404.html ] && echo '✅' || echo '❌')"
+          echo "   - Worker接口: $(grep -c 'path ===' worker.js | tr -d ' ') 个"

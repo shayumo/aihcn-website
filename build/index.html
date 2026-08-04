@@ -1,285 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI前沿速递 - 最新AI新闻资讯">
-    <title>AI前沿速递</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            background: #f5f5f7;
-            color: #1D1D1F;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .news-item {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-
-        .news-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .news-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .news-title:hover {
-            color: #007AFF;
-        }
-
-        .news-desc {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .news-meta {
-            color: #999;
-            font-size: 0.9rem;
-            display: flex;
-            gap: 20px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: #999;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIHCN · 智衡 — Practical AI Tools for Creators</title>
+  <meta name="description" content="智衡 AIHCN — 面向视频创作者与独立制作者的实用 AI 工具。Practical AI tools for creators.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="zh-CN" href="https://aihcn.com/zh/index.html">
+  <link rel="alternate" hreflang="en" href="https://aihcn.com/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://aihcn.com/">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      window.location.replace(lang.indexOf("zh") === 0 ? "/zh/" : "/en/");
+    })();
+  </script>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <h1>🤖 AI前沿速递</h1>
-            <p>实时追踪AI技术最新动态</p>
-            <p>每篇新闻包含：新闻概述 + 原文翻译 + AI点评</p>
+  <main>
+    <section class="err-page">
+      <div class="container">
+        <a class="brand" href="/zh/" style="justify-content:center;">
+          <img class="brand-mark" src="assets/img/mark.svg" width="24" height="24" alt="AIHCN 标识">
+          <span class="brand-name">AIHCN<span class="zh">智衡</span></span>
+        </a>
+        <h1 class="display" style="margin-top:28px;">选择你的语言</h1>
+        <p class="mono" style="margin:12px 0 30px;">Choose your language</p>
+        <div class="hero-cta" style="justify-content:center;">
+          <a class="btn btn-primary" href="/zh/">中文</a>
+          <a class="btn btn-ghost" href="/en/">English</a>
         </div>
-    </div>
-
-    <div class="container">
-        
-        <div class="news-item">
-            <a href="/news/224" class="news-title">Databricks Has a Trick That Lets AI Models Improve Themselves</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #224</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/225" class="news-title">Boston Dynamics Led a Robot Revolution. Now Its Machines Are Teaching Themselves New Tricks</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #225</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/226" class="news-title">Anthropic Launches the World's First 'Hybrid Reasoning' AI Model</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #226</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/227" class="news-title">Why 'Beating China' in AI Brings Its Own Risks</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #227</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/228" class="news-title">Botto, the Millionaire AI Artist, Is Getting a Personality</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #228</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/229" class="news-title">OnlyFans Models Are Using AI Impersonators to Keep Up With Their DMs</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 09:00</span>
-                <span>🔖 #229</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/217" class="news-title">arXiv:2603.05498 - The Spike, the Sparse and the Sink: Anatomy of Massive Activations and Attention Sinks</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #217</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/218" class="news-title">arXiv:2603.05485 - Towards Provably Unbiased LLM Judges via Bias-Bounded Evaluation</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #218</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/219" class="news-title">arXiv:2603.05399 - Judge Reliability Harness: Stress Testing the Reliability of LLM Judges</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #219</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/220" class="news-title">arXiv:2603.05294 - STRUCTUREDAGENT: Planning with AND/OR Trees for Long-Horizon Web Tasks</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #220</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/221" class="news-title">arXiv:2603.05290 - X-RAY: Mapping LLM Reasoning Capability via Formalized and Calibrated Probes</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #221</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/222" class="news-title">arXiv:2603.05295 - WebChain: A Large-Scale Human-Annotated Dataset of Real-World Web Interaction Traces</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #222</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/223" class="news-title">arXiv:2603.05225 - AI+HW 2035: Shaping the Next Decade</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 08:00</span>
-                <span>🔖 #223</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/211" class="news-title">Dynamic UI for dynamic AI: Inside the emerging A2UI model</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #211</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/212" class="news-title">LangChain's CEO argues that better models alone won't get your AI agent to production</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #212</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/213" class="news-title">Karpathy's March of Nines shows why 90% AI reliability isn't even close to enough</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #213</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/214" class="news-title">Anthropic launches Claude Marketplace</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #214</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/215" class="news-title">New KV cache compaction technique cuts LLM memory 50x without accuracy loss</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #215</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/216" class="news-title">Google PM open-sources Always On Memory Agent</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 07:00</span>
-                <span>🔖 #216</span>
-            </div>
-        </div>
-        
-        <div class="news-item">
-            <a href="/news/204" class="news-title">Will the Pentagon's Anthropic controversy scare startups away from defense work</a>
-            <div class="news-desc">...</div>
-            <div class="news-meta">
-                <span>📅 2026-03-09 06:00</span>
-                <span>🔖 #204</span>
-            </div>
-        </div>
-        
-    </div>
-
-    <div class="footer">
-        <p>© 2026 AI前沿速递 | 共 229 条新闻</p>
-    </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
-    

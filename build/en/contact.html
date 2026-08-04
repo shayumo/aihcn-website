@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — AIHCN</title>
+  <meta name="description" content="Contact AIHCN: early access, feedback, tool ideas, or press. We reply within one business day.">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://aihcn.com/en/contact.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://aihcn.com/zh/contact.html">
+  <link rel="alternate" hreflang="en" href="https://aihcn.com/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://aihcn.com/">
+  <meta property="og:title" content="Contact — AIHCN">
+  <meta property="og:description" content="Early access, feedback, or tool ideas.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="../assets/img/mark.svg" width="24" height="24" alt="AIHCN logo">
+        <span class="brand-name">AIHCN</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a class="nav-cta" href="contact.html">Get early access</a>
+        <a class="lang-switch" href="../zh/contact.html">中文</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation">☰ Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Contact</span>
+        <h1 class="display">Tell us what slows you down.</h1>
+        <p class="lede">Early access, feedback, tool ideas, or anything else. We reply within one business day.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px;">
+      <div class="container">
+        <div class="story">
+          <div class="reveal">
+            <form id="contact-form" class="form" data-endpoint="/api/contact" novalidate>
+              <div class="hp-field" aria-hidden="true">
+                <label>Leave this empty</label>
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="name">Your name</label>
+                  <input id="name" name="name" type="text" placeholder="Name or studio" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="type">What's this about?</label>
+                <select id="type" name="type">
+                  <option value="early-access">Early access / waitlist</option>
+                  <option value="feedback">Feedback or feature idea</option>
+                  <option value="press">Press / partnership</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">Your message</label>
+                <textarea id="message" name="message" placeholder="What's your workflow, what's slow, what would help? The more specific, the better." required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <div class="form-status" role="status" aria-live="polite"></div>
+              <p class="small muted">By submitting, you agree we'll use this only to reply to you. No newsletters, no data resale, ever.</p>
+            </form>
+          </div>
+          <div class="reveal">
+            <span class="eyebrow" style="display:block;margin-bottom:16px;">Direct</span>
+            <h2 class="h2" style="margin-bottom:20px;">Or just email us</h2>
+            <p><strong>Email</strong>: <a href="mailto:hello@aihcn.com">hello@aihcn.com</a></p>
+            <p><strong>Response time</strong>: within one business day. Mark it "URGENT" if it's time-sensitive.</p>
+            <p><strong>Where we are</strong>: fully remote, building for creators everywhere.</p>
+            <p><strong>Free to email us</strong>: a bad idea is still worth a reply. Worst case, we say no.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../assets/img/mark.svg" width="24" height="24" alt="AIHCN logo">
+            <span class="brand-name">AIHCN</span>
+          </a>
+          <p>Practical AI tools for video creators and solo makers. Tools that pay for themselves.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="tools.html">Transcriptor</a></li>
+            <li><a href="tools.html">ClipLab</a></li>
+            <li><a href="tools.html">MetaForge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@aihcn.com">hello@aihcn.com</a></li>
+            <li><a href="https://aihcn.com">aihcn.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> AIHCN · AI Hub for Creators</span>
+        <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="refund.html">Refund</a> · <a href="../zh/contact.html">中文</a> · <a href="contact.html">English</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,154 +1,90 @@
-// Cloudflare Worker - 点赞功能API后端
-// 文件: worker.js
-
+// AIHCN · 智衡 — Cloudflare Worker API
+// 提供联系表单（/api/contact）与邮件订阅（/api/newsletter），数据存 D1
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const method = request.method;
     const path = url.pathname;
 
-    // CORS处理
-    if (request.method === 'OPTIONS') {
+    if (method === 'OPTIONS') {
       return new Response(null, {
         status: 204,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        },
+        headers: corsHeaders(),
       });
     }
 
-    // API路由
-    if (path === '/api/like' && method === 'POST') {
-      return handleLike(request, env);
+    if (path === '/api/contact' && method === 'POST') {
+      return handleContact(request, env);
+    }
+    if (path === '/api/newsletter' && method === 'POST') {
+      return handleNewsletter(request, env);
     }
 
-    if (path === '/api/like-count' && method === 'GET') {
-      return handleGetLikeCount(request, env);
-    }
-
-    if (path === '/api/check-like' && method === 'GET') {
-      return handleCheckLike(request, env);
-    }
-
-    // 404
-    return new Response('Not Found', { status: 404 });
-  }
+    return new Response('Not Found', { status: 404, headers: corsHeaders() });
+  },
 };
 
-// 点赞/取消点赞
-async function handleLike(request, env) {
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Content-Type': 'application/json; charset=utf-8',
+  };
+}
+
+function json(data, status = 200) {
+  return new Response(JSON.stringify(data), { status, headers: corsHeaders() });
+}
+
+function isEmail(v) {
+  return typeof v === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) && v.length <= 200;
+}
+
+// 联系表单
+async function handleContact(request, env) {
   try {
-    const { news_id, user_id } = await request.json();
+    const body = await request.json();
+    // 蜜罐：真用户不会填这个字段
+    if (body.company_website) return json({ ok: true });
 
-    // 检查是否已点赞
-    const result = await env.DB.prepare(
-      'SELECT id FROM likes WHERE news_id = ? AND user_id = ?'
-    ).bind(news_id, user_id).first();
+    const name = String(body.name || '').trim().slice(0, 100);
+    const email = String(body.email || '').trim();
+    const type = String(body.type || 'other').slice(0, 40);
+    const message = String(body.message || '').trim().slice(0, 5000);
 
-    if (result) {
-      // 取消点赞
-      await env.DB.prepare(
-        'DELETE FROM likes WHERE news_id = ? AND user_id = ?'
-      ).bind(news_id, user_id).run();
+    if (!isEmail(email)) return json({ ok: false, error: '邮箱格式不正确。' }, 400);
+    if (!message) return json({ ok: false, error: '请简单描述你的需求。' }, 400);
 
-      const count = await getLikeCountFromDB(env.DB, news_id);
+    await env.DB.prepare(
+      'INSERT INTO leads (name, email, type, message, created_at) VALUES (?, ?, ?, ?, ?)'
+    )
+      .bind(name, email, type, message, new Date().toISOString())
+      .run();
 
-      return new Response(JSON.stringify({
-        action: 'unlike',
-        count: count,
-        liked: false
-      }), {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-    } else {
-      // 点赞
-      await env.DB.prepare(
-        'INSERT INTO likes (news_id, user_id, created_at) VALUES (?, ?, ?)'
-      ).bind(news_id, user_id, new Date().toISOString()).run();
-
-      const count = await getLikeCountFromDB(env.DB, news_id);
-
-      return new Response(JSON.stringify({
-        action: 'like',
-        count: count,
-        liked: true
-      }), {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-    }
+    return json({ ok: true, message: '已收到，我们会尽快回复你。' });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ ok: false, error: '提交失败，请稍后再试。' }, 500);
   }
 }
 
-// 获取点赞数
-async function handleGetLikeCount(request, env) {
+// 邮件订阅
+async function handleNewsletter(request, env) {
   try {
-    const url = new URL(request.url);
-    const news_id = url.searchParams.get('news_id');
+    const body = await request.json();
+    if (body.company_website) return json({ ok: true });
 
-    const result = await env.DB.prepare(
-      'SELECT COUNT(*) as count FROM likes WHERE news_id = ?'
-    ).bind(news_id).first();
+    const email = String(body.email || '').trim();
+    if (!isEmail(email)) return json({ ok: false, error: '邮箱格式不正确。' }, 400);
 
-    return new Response(JSON.stringify({
-      count: result.count || 0
-    }), {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    await env.DB.prepare(
+      'INSERT OR IGNORE INTO subscribers (email, created_at) VALUES (?, ?)'
+    )
+      .bind(email, new Date().toISOString())
+      .run();
+
+    return json({ ok: true, message: '订阅成功，欢迎加入智衡。' });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ ok: false, error: '订阅失败，请稍后再试。' }, 500);
   }
-}
-
-// 检查是否已点赞
-async function handleCheckLike(request, env) {
-  try {
-    const url = new URL(request.url);
-    const news_id = url.searchParams.get('news_id');
-    const user_id = url.searchParams.get('user_id');
-
-    const result = await env.DB.prepare(
-      'SELECT id FROM likes WHERE news_id = ? AND user_id = ?'
-    ).bind(news_id, user_id).first();
-
-    return new Response(JSON.stringify({
-      liked: !!result
-    }), {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-}
-
-// 从数据库获取点赞数
-async function getLikeCountFromDB(db, news_id) {
-  const result = await db.prepare(
-    'SELECT COUNT(*) as count FROM likes WHERE news_id = ?'
-  ).bind(news_id).first();
-  return result.count || 0;
 }

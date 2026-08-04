@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 — 智衡 AIHCN</title>
+  <meta name="description" content="联系智衡（AIHCN）：抢先体验、反馈建议、工具想法或任何合作。一个工作日内回复。">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://aihcn.com/zh/contact.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://aihcn.com/zh/contact.html">
+  <link rel="alternate" hreflang="en" href="https://aihcn.com/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://aihcn.com/">
+  <meta property="og:title" content="联系我们 — 智衡 AIHCN">
+  <meta property="og:description" content="抢先体验、反馈建议，或任何合作。">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="../assets/img/mark.svg" width="24" height="24" alt="AIHCN 标识">
+        <span class="brand-name">AIHCN<span class="zh">智衡</span></span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="tools.html">工具</a>
+        <a href="blog.html">博客</a>
+        <a href="about.html">关于</a>
+        <a href="contact.html" aria-current="page">联系</a>
+        <a class="nav-cta" href="contact.html">抢先体验</a>
+        <a class="lang-switch" href="../en/contact.html">EN</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-label="打开导航">☰ 菜单</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">联系我们</span>
+        <h1 class="display">告诉我们，什么最拖慢你。</h1>
+        <p class="lede">抢先体验、反馈建议、工具想法，或任何其他事。我们会在一个工作日内回复。</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px;">
+      <div class="container">
+        <div class="story">
+          <div class="reveal">
+            <form id="contact-form" class="form" data-endpoint="/api/contact" novalidate>
+              <div class="hp-field" aria-hidden="true">
+                <label>不要填写</label>
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label for="name">怎么称呼你</label>
+                  <input id="name" name="name" type="text" placeholder="名字 / 工作室名" required>
+                </div>
+                <div class="field">
+                  <label for="email">邮箱 *</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="type">你想聊什么</label>
+                <select id="type" name="type">
+                  <option value="early-access">抢先体验 / 等待列表</option>
+                  <option value="feedback">反馈或功能建议</option>
+                  <option value="press">媒体 / 合作</option>
+                  <option value="other">其他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">你的留言</label>
+                <textarea id="message" name="message" placeholder="你的工作流是什么、哪里慢、什么能帮你？写得越具体，回复越有用。" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">发送消息</button>
+              <div class="form-status" role="status" aria-live="polite"></div>
+              <p class="small muted">提交即表示你同意我们仅将此信息用于回复你。不发订阅、不卖数据，永远。</p>
+            </form>
+          </div>
+          <div class="reveal">
+            <span class="eyebrow" style="display:block;margin-bottom:16px;">直接联系</span>
+            <h2 class="h2" style="margin-bottom:20px;">也可以直接发邮件</h2>
+            <p><strong>邮箱</strong>：<a href="mailto:hello@aihcn.com">hello@aihcn.com</a></p>
+            <p><strong>回复时效</strong>：一个工作日内；紧急事项请标注「急」。</p>
+            <p><strong>支付方式</strong>：上线后支持支付宝 / 微信支付（国内）与信用卡（海外，经 Paddle 收款）。</p>
+            <p><strong>免费提问</strong>：再"不成熟"的想法也值得一个回复。最坏的结果，就是我们说不行。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img class="brand-mark" src="../assets/img/mark.svg" width="24" height="24" alt="AIHCN 标识">
+            <span class="brand-name">AIHCN<span class="zh">智衡</span></span>
+          </a>
+          <p>面向视频创作者与独立制作者的实用 AI 工具。省下的时间远超订阅价。</p>
+        </div>
+        <div>
+          <h4>产品</h4>
+          <ul>
+            <li><a href="tools.html">转写工坊</a></li>
+            <li><a href="tools.html">切片工坊</a></li>
+            <li><a href="tools.html">文案工坊</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>站点</h4>
+          <ul>
+            <li><a href="blog.html">博客</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>联系</h4>
+          <ul>
+            <li><a href="mailto:hello@aihcn.com">hello@aihcn.com</a></li>
+            <li><a href="https://aihcn.com">aihcn.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> AIHCN · 智衡</span>
+        <span><a href="privacy.html">隐私</a> · <a href="terms.html">条款</a> · <a href="refund.html">退款</a> · <a href="index.html">中文</a> · <a href="../en/contact.html">English</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

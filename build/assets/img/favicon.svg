@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24" role="img" aria-label="AIHCN 智衡标识">
+  <rect width="20" height="20" rx="2" fill="#17181A"/>
+  <g fill="#F6F3EC">
+    <rect x="4" y="0" width="4" height="4"/>
+    <rect x="8" y="0" width="4" height="4"/>
+    <rect x="12" y="0" width="4" height="4"/>
+    <rect x="0" y="4" width="4" height="4"/>
+    <rect x="8" y="4" width="4" height="4"/>
+    <rect x="16" y="4" width="4" height="4"/>
+    <rect x="0" y="12" width="4" height="4"/>
+    <rect x="16" y="12" width="4" height="4"/>
+  </g>
+  <g fill="#D93A2B">
+    <rect x="0" y="8" width="4" height="4"/>
+    <rect x="4" y="8" width="4" height="4"/>
+    <rect x="8" y="8" width="4" height="4"/>
+    <rect x="12" y="8" width="4" height="4"/>
+    <rect x="16" y="8" width="4" height="4"/>
+  </g>
+</svg>

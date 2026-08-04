@@ -36,4 +36,4 @@ jobs:
           echo "   - 页面数量: $(find build -name '*.html' | wc -l | tr -d ' ')"
           echo "   - 主页存在: $([ -f build/index.html ] && echo '✅' || echo '❌')"
           echo "   - 404兜底页: $([ -f build/404.html ] && echo '✅' || echo '❌')"
-          echo "   - API接口: $(grep -c \"path === '/api/\" worker.js | tr -d ' ') 个"
+          echo "   - API接口: $(grep -c "path === '/api/" worker.js | tr -d ' ') 个"

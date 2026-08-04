@@ -63,3 +63,17 @@ python3 -m http.server 8080 --directory build
 # 中文：http://localhost:8080/zh/ · 英文：http://localhost:8080/en/
 # 本地预览下 /api 不可用属正常（前端会提示直连邮箱）
 ```
+
+
+## 常见错误排查
+
+### Actions 报 403 Authentication error（code 10000）
+说明 Cloudflare API 拒绝了 Token，与 Node 版本/工作流代码无关。按顺序排查：
+
+1. **本地验证 Token 本身**（命令见上方第 2 步）：
+   - 返回 403/401 → Token 无效：过期 / 复制漏了字符 / 被撤销 → 在 Cloudflare 重建 Token，更新 Secret
+   - 返回 `"success":true` → Token 有效，问题在 Secret 或账号配置，继续下一步
+2. **确认两个 Secret 都存在于正确仓库**（`shayumo/aihcn-website`），且名字完全一致（大小写敏感）：
+   `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`
+3. **确认 Account ID 与 Token 所属账号一致**：Token 在账号 A 创建、Secret 却填账号 B 的 ID，同样会 403
+4. 修好后在 Actions 对失败运行 **Re-run all jobs**，或推一个新提交触发

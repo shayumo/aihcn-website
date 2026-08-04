@@ -19,7 +19,7 @@
 ## 待办清单
 
 - [ ] 配置域名邮箱 hello@aihcn.com（Cloudflare Email Routing）
-- [ ] Cloudflare Pages 绑定 aihcn.com；D1 建库并绑定 Worker
+- [ ] 确认 aihcn.com 已绑定 Workers 项目；D1 建库并在 wrangler.toml 配置绑定
 - [ ] GitHub Secrets：`CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`
 - [ ] 国内收款：办理个体工商户/企业，开通支付宝/微信商户
 - [ ] 海外收款：注册 Paddle / Lemon Squeezy

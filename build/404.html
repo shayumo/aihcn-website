@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · AIHCN</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      window.location.replace(lang.indexOf("zh") === 0 ? "/zh/404.html" : "/en/404.html");
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <section class="err-page">
+      <div class="container">
+        <div class="pixel-a" role="img" aria-label="AIHCN 首字母 A 的像素标识" style="margin:0 auto 28px;"></div>
+        <h1 class="display">404 · 信号丢失</h1>
+        <p class="mono">$ aihcn --page-not-found</p>
+        <p class="lede" style="margin-bottom:32px;">正在跳转到对应语言版本……</p>
+        <a class="btn btn-primary" href="/zh/">中文首页</a>
+        <a class="btn btn-ghost" href="/en/">English Home</a>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

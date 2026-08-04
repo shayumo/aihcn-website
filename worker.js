@@ -20,7 +20,8 @@ export default {
       return handleNewsletter(request, env);
     }
 
-    return new Response('Not Found', { status: 404, headers: corsHeaders() });
+    // 其余请求交给静态资源（build/ 目录），未命中页面由 not_found_handling 兜底
+    return env.ASSETS.fetch(request);
   },
 };
 
@@ -47,6 +48,10 @@ async function handleContact(request, env) {
     const body = await request.json();
     // 蜜罐：真用户不会填这个字段
     if (body.company_website) return json({ ok: true });
+    // D1 数据库未绑定时的兜底提示（正常部署后不会走到这里）
+    if (!env.DB) {
+      return json({ ok: false, error: '服务正在配置中，请直接发邮件至 hello@aihcn.com' }, 503);
+    }
 
     const name = String(body.name || '').trim().slice(0, 100);
     const email = String(body.email || '').trim();
@@ -76,6 +81,10 @@ async function handleNewsletter(request, env) {
 
     const email = String(body.email || '').trim();
     if (!isEmail(email)) return json({ ok: false, error: '邮箱格式不正确。' }, 400);
+    // D1 数据库未绑定时的兜底提示
+    if (!env.DB) {
+      return json({ ok: false, error: '服务正在配置中，请稍后再试或发邮件至 hello@aihcn.com' }, 503);
+    }
 
     await env.DB.prepare(
       'INSERT OR IGNORE INTO subscribers (email, created_at) VALUES (?, ?)'

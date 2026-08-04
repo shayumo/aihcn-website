@@ -1,45 +1,43 @@
 # AIHCN · 智衡 — 部署清单
 
-> 版本：v1.1（2026-08） · 按顺序执行，每步完成后勾选
+> 版本：v2.0（2026-08） · 按顺序执行，每步完成后勾选
 
 ## 架构
 
-- **静态站点**：`build/` 中英双语页面，GitHub Actions 推送 Cloudflare Pages（项目 `aihcn-website`）
-- **表单接口**：Pages Functions（`build/functions/api/`），与站点同域 `/api/contact`、`/api/newsletter`，数据存 D1
-- **语言跳转**：根域名 `build/index.html` 按浏览器语言自动跳转 `/zh/` 或 `/en/`
-- **安全头**：`_headers`
+- **站点形态**：静态资源（`build/` 中英双语页面）+ Worker 接口（`worker.js`），部署为 Cloudflare Workers 项目 `aihcn-website`（已存在，自定义域 `aihcn.com` 已绑定）
+- **部署方式**：GitHub Actions 用 `wrangler-action` 推送，配置见 `wrangler.toml`；静态资源由 `[assets]` 托管，`/api/*` 由 `worker.js` 处理，数据存 D1
+- **语言跳转**：根域名 `build/index.html` 按浏览器语言自动跳转 `/zh/` 或 `/en/`；404 由 `build/404.html` 同样按语言跳转
+- **安全头**：`build/_headers`
 
 ## 部署步骤
 
-### 1. Cloudflare 与域名（约 10 分钟）
-- [ ] 将 aihcn.com 的 DNS 托管到 Cloudflare（修改注册商 NS 指向 Cloudflare 分配的 NS）
-- [ ] 在 Cloudflare Dashboard 创建 Pages 项目：名称 `aihcn-website`
+### 1. Cloudflare 项目与域名（已完成，确认即可）
+- [x] 确认 Workers 项目 `aihcn-website` 存在（Dashboard → Workers & Pages），自定义域 `aihcn.com` 已绑定
+- [ ] 若该项目还连着旧 GitHub 集成（项目页显示「shayumo/aihcn-website」来源），建议在项目 Settings 中断开 Git 连接，避免旧构建配置覆盖新站点（部署改由 Actions 负责）
 
 ### 2. GitHub 仓库与自动部署
-- [ ] 推送本仓库到 GitHub
 - [ ] 配置 Secrets（Settings → Secrets and variables → Actions）：
   - `CLOUDFLARE_API_TOKEN`：Cloudflare「我的个人资料 → API 令牌 → 创建令牌」自定义令牌，
-    权限至少：账号·Cloudflare Pages·编辑 + 账号·账户设置·读取 + 区域·区域·读取（绑定自定义域名时需要）；
-    资源范围选对应账号
-  - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 首页右侧 Account ID，必须与 Token 所属账号一致
+    权限至少：账号·Workers Scripts·编辑 + 账号·D1·编辑 + 账号·账户设置·读取；资源范围选对应账号
+  - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 首页右侧 Account ID（`f454e7665de1f9b49f25336db68f39ff`），必须与 Token 所属账号一致
 - [ ] 令牌本地验证（返回 `"success":true` 才有效，403 说明令牌无效或权限不足）：
   ```bash
   curl -s https://api.cloudflare.com/client/v4/user/tokens/verify -H "Authorization: Bearer <TOKEN>"
   ```
 - [ ] 推送 `master` 触发 `.github/workflows/deploy.yml`，确认 Actions 通过
-- [ ] Pages 项目 → Custom domains → 添加 `aihcn.com`（确认 DNS 已指向 Pages）
+- [ ] 验证 `https://aihcn.com/` 语言跳转、`/zh/`、`/en/` 正常（临时域名 `https://aihcn-website.410291479.workers.dev`）
 
 ### 3. D1 数据库与表单接口
-- [ ] 创建 D1 数据库（如 `aihcn-db`）
+- [ ] 创建 D1 数据库（名称建议 `aihcn-db`）：
+  ```bash
+  wrangler d1 create aihcn-db
+  ```
 - [ ] 在 D1 控制台执行 `database/init.sql`（创建 `leads` / `subscribers` 表）
-- [ ] Pages 项目 → Settings → Functions → D1 数据库绑定，绑定名填 **`DB`**（必须与代码一致）
-- [ ] 重新部署后验证接口：
+- [ ] 在 `wrangler.toml` 取消注释 D1 绑定，填入实际 `database_id`
+- [ ] 重新部署后验证接口（正常应返回 `{"ok":true,...}`；未绑定 D1 时返回 503 提示是正常的，按上一步补齐即可）：
   ```bash
   curl -X POST https://aihcn.com/api/newsletter -H 'Content-Type: application/json' -d '{"email":"test@example.com"}'
-  # 期望返回 {"ok":true,...}
   ```
-- [ ] 如 `/api/*` 返回 404（Functions 未生效），回退方案：将 `worker.js` 部署为独立 Worker，
-      在 Pages 项目加路由 `aihcn.com/api/*` → Worker，并绑定同名 D1（变量 `DB`）
 
 ### 4. 域名邮箱（可选，免费）
 - [ ] Cloudflare → Email Routing → 添加 `hello@aihcn.com`，转发到你的个人邮箱
@@ -53,7 +51,7 @@
 - [ ] `https://aihcn.com/` 按语言跳转正确，兜底按钮可用
 - [ ] 中英各页导航、语言切换、政策链接可用
 - [ ] 联系表单与订阅表单可提交、D1 有记录、蜜罐拦截生效
-- [ ] 404 页、移动端布局、安全响应头正常
+- [ ] 404 兜底页按语言跳转、移动端布局、安全响应头正常（`build/_headers` 生效）
 - [ ] 政策页生效日期与内容已复核
 
 ## 本地预览
@@ -63,7 +61,6 @@ python3 -m http.server 8080 --directory build
 # 中文：http://localhost:8080/zh/ · 英文：http://localhost:8080/en/
 # 本地预览下 /api 不可用属正常（前端会提示直连邮箱）
 ```
-
 
 ## 常见错误排查
 
@@ -77,3 +74,8 @@ python3 -m http.server 8080 --directory build
    `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`
 3. **确认 Account ID 与 Token 所属账号一致**：Token 在账号 A 创建、Secret 却填账号 B 的 ID，同样会 403
 4. 修好后在 Actions 对失败运行 **Re-run all jobs**，或推一个新提交触发
+
+### Actions 报 404 Project not found
+说明部署目标用错了产品：`aihcn-website` 是 **Workers 项目**（子域为 `*.workers.dev`），不是 Pages 项目（`*.pages.dev`）。旧工作流用的 `cloudflare/pages-action` 只认 Pages 项目，因此 404。
+- 当前仓库已改用 `wrangler-action` + `wrangler.toml` 部署 Workers，不再需要 Pages 项目
+- 若仍想用 Pages：需先在 Dashboard 创建同名 Pages 项目，并先解除自定义域与现有 Worker 的绑定（会有一段时间域名不可用，不推荐）

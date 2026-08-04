@@ -1,0 +1,19 @@
+# AIHCN · 智衡 — Cloudflare Workers 部署配置
+# 站点为静态资源（build/）+ Worker 接口（worker.js）
+name = "aihcn-website"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+# 静态资源：build/ 目录（中英双语页面 + 根域名语言跳转）
+[assets]
+directory = "./build"
+binding = "ASSETS"
+
+# 未命中页面时返回 build/404.html（按浏览器语言跳转对应语言 404）
+not_found_handling = "404-page"
+
+# D1 数据库绑定（创建数据库并执行 database/init.sql 后，取消注释并填入实际 ID）
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "aihcn-db"
+# database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

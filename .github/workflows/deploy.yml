@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to Cloudflare Pages
+    name: Deploy to Cloudflare Workers
     permissions:
       contents: read
       deployments: write
@@ -19,24 +19,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: aihcn-website
-          directory: build
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-           # 不需要配置build command和output directory，因为是静态网站
+          command: deploy
 
       - name: Deployment Status
         run: |
           echo "🎉 部署成功！"
           echo "🌐 访问地址: https://aihcn.com"
-          echo "📢 临时域名: https://aihcn-website.pages.dev"
+          echo "📢 临时域名: https://aihcn-website.410291479.workers.dev"
           echo ""
           echo "📊 网站信息:"
           echo "   - 页面数量: $(find build -name '*.html' | wc -l | tr -d ' ')"
           echo "   - 主页存在: $([ -f build/index.html ] && echo '✅' || echo '❌')"
-          echo "   - 404页面: $([ -f build/404.html ] && echo '✅' || echo '❌')"
-          echo "   - Worker接口: $(grep -c 'path ===' worker.js | tr -d ' ') 个"
+          echo "   - 404兜底页: $([ -f build/404.html ] && echo '✅' || echo '❌')"
+          echo "   - API接口: $(grep -c \"path === '/api/\" worker.js | tr -d ' ') 个"

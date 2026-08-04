@@ -43,7 +43,7 @@
 | 项目 | 成本 |
 |---|---|
 | 域名 aihcn.com | 已持有（年续费约 $10） |
-| Cloudflare 免费版（Pages + Worker + D1） | $0 |
+| Cloudflare 免费版（Workers + D1） | $0 |
 | 收款手续费 | 支付宝/微信约 0.6%-1% + Paddle 约 5% + 交易费 |
 | AI API 额度（开发/运行） | $20-100/月起 |
 | 合计 | 极低，API 是主要可变成本 |

@@ -7,7 +7,7 @@
 - **站点形态**：静态资源（`build/` 中英双语页面）+ Worker 接口（`worker.js`），部署为 Cloudflare Workers 项目 `aihcn-website`（已存在，自定义域 `aihcn.com` 已绑定）
 - **部署方式**：GitHub Actions 用 `wrangler-action` 推送，配置见 `wrangler.toml`；静态资源由 `[assets]` 托管，`/api/*` 由 `worker.js` 处理，数据存 D1
 - **语言跳转**：根域名 `build/index.html` 按浏览器语言自动跳转 `/zh/` 或 `/en/`；404 由 `build/404.html` 同样按语言跳转
-- **安全头**：`build/_headers`
+- **安全头**：`worker.js` 统一附加（`run_worker_first = true`，静态资源也经 Worker 加头）
 
 ## 部署步骤
 
@@ -51,7 +51,7 @@
 - [ ] `https://aihcn.com/` 按语言跳转正确，兜底按钮可用
 - [ ] 中英各页导航、语言切换、政策链接可用
 - [ ] 联系表单与订阅表单可提交、D1 有记录、蜜罐拦截生效
-- [ ] 404 兜底页按语言跳转、移动端布局、安全响应头正常（`build/_headers` 生效）
+- [ ] 404 兜底页按语言跳转、移动端布局、安全响应头正常（`X-Frame-Options` 等由 Worker 附加）
 - [ ] 政策页生效日期与内容已复核
 
 ## 本地预览

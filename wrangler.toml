@@ -8,6 +8,8 @@ compatibility_date = "2025-06-01"
 [assets]
 directory = "./build"
 binding = "ASSETS"
+# 所有请求先经过 Worker：由 worker.js 统一附加安全头与缓存头
+run_worker_first = true
 
 # 未命中页面时返回 build/404.html（按浏览器语言跳转对应语言 404）
 not_found_handling = "404-page"

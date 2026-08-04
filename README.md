@@ -30,10 +30,9 @@ build/
     js/main.js          # 像素 A 动画、表单、导航、滚动显现
     img/                # 标识、favicon、OG 封面
   404.html              # 未命中页面：按浏览器语言跳转对应语言 404
-  _headers              # 安全响应头
-worker.js               # Worker 表单接口：/api/contact、/api/newsletter（数据存 D1）
+worker.js               # Worker：/api 表单接口 + 静态资源安全头（run_worker_first）
 database/init.sql       # D1 建表（leads / subscribers）
-wrangler.toml           # Workers 部署配置（静态资源 + D1 绑定）
+wrangler.toml           # Workers 部署配置（静态资源 + run_worker_first + D1 绑定）
 .github/workflows/deploy.yml  # 推送 master 自动部署到 Cloudflare Workers
 ```
 

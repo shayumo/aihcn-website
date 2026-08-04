@@ -21,9 +21,28 @@ export default {
     }
 
     // 其余请求交给静态资源（build/ 目录），未命中页面由 not_found_handling 兜底
-    return env.ASSETS.fetch(request);
+    return handleAssets(request, env);
   },
 };
+
+// 静态资源响应：统一附加安全头与缓存头（替代 _headers 文件，兼容有 Worker 脚本的部署）
+async function handleAssets(request, env) {
+  const response = await env.ASSETS.fetch(request);
+  const headers = new Headers(response.headers);
+  headers.set('X-Frame-Options', 'DENY');
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('X-XSS-Protection', '1; mode=block');
+  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  // 静态资源（图片/样式/脚本）长缓存，页面短缓存
+  const path = new URL(request.url).pathname;
+  headers.set('Cache-Control', path.startsWith('/assets/') ? 'public, max-age=604800' : 'public, max-age=3600');
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 function corsHeaders() {
   return {

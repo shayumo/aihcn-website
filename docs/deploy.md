@@ -18,8 +18,14 @@
 ### 2. GitHub 仓库与自动部署
 - [ ] 推送本仓库到 GitHub
 - [ ] 配置 Secrets（Settings → Secrets and variables → Actions）：
-  - `CLOUDFLARE_API_TOKEN`（权限：Cloudflare Pages — Edit）
-  - `CLOUDFLARE_ACCOUNT_ID`（Cloudflare 首页右侧 Account ID）
+  - `CLOUDFLARE_API_TOKEN`：Cloudflare「我的个人资料 → API 令牌 → 创建令牌」自定义令牌，
+    权限至少：账号·Cloudflare Pages·编辑 + 账号·账户设置·读取 + 区域·区域·读取（绑定自定义域名时需要）；
+    资源范围选对应账号
+  - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 首页右侧 Account ID，必须与 Token 所属账号一致
+- [ ] 令牌本地验证（返回 `"success":true` 才有效，403 说明令牌无效或权限不足）：
+  ```bash
+  curl -s https://api.cloudflare.com/client/v4/user/tokens/verify -H "Authorization: Bearer <TOKEN>"
+  ```
 - [ ] 推送 `master` 触发 `.github/workflows/deploy.yml`，确认 Actions 通过
 - [ ] Pages 项目 → Custom domains → 添加 `aihcn.com`（确认 DNS 已指向 Pages）
 

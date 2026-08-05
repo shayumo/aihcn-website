@@ -25,19 +25,40 @@
   curl -s https://api.cloudflare.com/client/v4/user/tokens/verify -H "Authorization: Bearer <TOKEN>"
   ```
 - [ ] 推送 `master` 触发 `.github/workflows/deploy.yml`，确认 Actions 通过
+- [ ] 需要手动重新部署时，可在 Actions 页对该工作流 **Run workflow**（已支持 `workflow_dispatch`），不必额外提交
 - [ ] 验证 `https://aihcn.com/` 语言跳转、`/zh/`、`/en/` 正常（临时域名 `https://aihcn-website.410291479.workers.dev`）
 
 ### 3. D1 数据库与表单接口
-- [ ] 创建 D1 数据库（名称建议 `aihcn-db`）：
+- [ ] **推荐一键完成**：Actions 页 → **Setup D1 and Deploy** → Run workflow（自动创建 `aihcn-db`、执行 `database/init.sql`、把 `database_id` 写入 `wrangler.toml` 并推送、部署、Purge）。Token 需有 账号·D1·编辑 权限
+- [ ] 手动方式（可选）：创建 D1 数据库（名称建议 `aihcn-db`）：
   ```bash
   wrangler d1 create aihcn-db
   ```
+- [ ] 没有本地 wrangler/Token 时，直接用 Dashboard 创建：Workers & Pages → D1 → Create database → 在数据库 Console 粘贴执行 `database/init.sql`
 - [ ] 在 D1 控制台执行 `database/init.sql`（创建 `leads` / `subscribers` 表）
 - [ ] 在 `wrangler.toml` 取消注释 D1 绑定，填入实际 `database_id`
 - [ ] 重新部署后验证接口（正常应返回 `{"ok":true,...}`；未绑定 D1 时返回 503 提示是正常的，按上一步补齐即可）：
   ```bash
   curl -X POST https://aihcn.com/api/newsletter -H 'Content-Type: application/json' -d '{"email":"test@example.com"}'
   ```
+
+### 3.5 缓存清理与安全头验证
+旧缓存条目会绕过 Worker 直出（无安全头），部署后需清除一次：
+- **自动**：`deploy.yml` 已在部署后附带 Purge（best-effort），Token 需有 Zone 读取/缓存清除权限才会生效
+- **手动（推荐，2 分钟）**：Actions 页 → **Purge aihcn.com Cache** → Run workflow；或 Dashboard → aihcn.com → Caching → Configuration → Purge Everything
+- **验证安全头已全量生效**（应出现 `x-frame-options: DENY` 与 `cache-control: public, max-age=3600`；静态资源为 `max-age=604800`）：
+  ```bash
+  curl -s -D - -o /dev/null https://aihcn.com/zh/ | rg -i 'x-frame|cache-control|cf-cache-status'
+  curl -s -D - -o /dev/null https://aihcn.com/assets/css/style.css | rg -i 'x-frame|cache-control|cf-cache-status'
+  ```
+- 若仍为 `cf-cache-status: HIT` 且无安全头，说明 Purge 未在 aihcn.com 所在 zone/账号执行，重新按上面方式清理
+- 建议给 Token 增加权限：Zone → 缓存清除·编辑（连同 Zone 读取），否则自动 Purge 会跳过并提示
+
+### 3.6 SEO 与收录
+- `build/robots.txt` 与 `build/sitemap.xml` 已内置：允许全站抓取，sitemap 收录 16 个规范地址（无 `.html` 后缀，与线上 307 后的最终地址一致）
+- 全站 canonical / hreflang / og:url 均指向无扩展名规范地址；改版新增页面后请同步更新 `sitemap.xml` 与对应页面的 `canonical`
+- 收录后可在 Google Search Console / Bing Webmaster 提交 `https://aihcn.com/sitemap.xml`；国内流量可另提交百度站长平台
+- 建议开启 Cloudflare Web Analytics（Dashboard → aihcn.com → Analytics，免费、无需改代码），观察各页面访问与转化来源
 
 ### 4. 域名邮箱（可选，免费）
 - [ ] Cloudflare → Email Routing → 添加 `hello@aihcn.com`，转发到你的个人邮箱
@@ -51,7 +72,7 @@
 - [ ] `https://aihcn.com/` 按语言跳转正确，兜底按钮可用
 - [ ] 中英各页导航、语言切换、政策链接可用
 - [ ] 联系表单与订阅表单可提交、D1 有记录、蜜罐拦截生效
-- [ ] 404 兜底页按语言跳转、移动端布局、安全响应头正常（`X-Frame-Options` 等由 Worker 附加）
+- [ ] 404 兜底页按语言跳转、移动端布局、安全响应头正常（`X-Frame-Options` 等由 Worker 附加；验证方式见 3.5）
 - [ ] 政策页生效日期与内容已复核
 
 ## 本地预览

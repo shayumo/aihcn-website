@@ -1,0 +1,95 @@
+name: Setup D1 and Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: 创建 D1 数据库并部署
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create D1 database (idempotent)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@latest d1 create aihcn-db 2>&1 || echo "（数据库可能已存在，继续）"
+          DB_ID=$(npx --yes wrangler@latest d1 list --json 2>/dev/null \
+            | python3 -c "import json,sys;d=json.load(sys.stdin);print(next((x['id'] for x in d if x['name']=='aihcn-db'),''))")
+          if [ -z "$DB_ID" ]; then
+            echo "❌ 无法获取 aihcn-db 的 database_id：请确认 Token 有 账号·D1·编辑 权限后重跑"
+            exit 1
+          fi
+          echo "DB_ID=$DB_ID" >> "$GITHUB_ENV"
+
+      - name: Apply schema
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@latest d1 execute aihcn-db --remote --file=database/init.sql
+
+      - name: Bind D1 in wrangler.toml
+        run: |
+          python3 - "$DB_ID" <<'EOF'
+          import sys
+          db_id = sys.argv[1]
+          path = 'wrangler.toml'
+          text = open(path).read()
+          old = """# D1 数据库绑定（创建数据库并执行 database/init.sql 后，取消注释并填入实际 ID）
+          # [[d1_databases]]
+          # binding = "DB"
+          # database_name = "aihcn-db"
+          # database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          """
+          new = """# D1 数据库绑定（由 Setup D1 工作流自动填写）
+          [[d1_databases]]
+          binding = "DB"
+          database_name = "aihcn-db"
+          database_id = "%s"
+          """ % db_id
+          if old not in text:
+            raise SystemExit("wrangler.toml 绑定块格式不匹配，请手动配置 D1 绑定")
+          open(path, 'w').write(text.replace(old, new))
+          EOF
+
+      - name: Commit and push binding
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wrangler.toml
+          if git diff --cached --quiet; then
+            echo "wrangler.toml 无变化（已绑定过）"
+          else
+            git commit -m "chore: 绑定 D1 数据库 aihcn-db"
+            git push origin HEAD:master
+          fi
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: Purge zone cache (best-effort)
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          ZONE_ID=$(curl -s -m 20 "https://api.cloudflare.com/client/v4/zones?name=aihcn.com" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            | python3 -c "import json,sys;d=json.load(sys.stdin);print(d['result'][0]['id'] if d.get('success') and d.get('result') else '')")
+          if [ -z "$ZONE_ID" ]; then
+            echo "⚠️ 未能解析 aihcn.com zone id（Token 可能缺少 Zone 读取权限），请手动在 Dashboard 执行 Purge Everything"
+            exit 0
+          fi
+          curl -s -m 20 -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}' \
+            | python3 -c "import json,sys;d=json.load(sys.stdin);print('✅ 已清除 aihcn.com zone 缓存' if d.get('success') else '⚠️ Purge 失败：'+json.dumps(d.get('errors')))"

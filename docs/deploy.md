@@ -60,6 +60,21 @@
 - 收录后可在 Google Search Console / Bing Webmaster 提交 `https://aihcn.com/sitemap.xml`；国内流量可另提交百度站长平台
 - 建议开启 Cloudflare Web Analytics（Dashboard → aihcn.com → Analytics，免费、无需改代码），观察各页面访问与转化来源
 
+### 3.7 已知问题：run_worker_first 线上未生效
+**现象**：真实页面与静态资源（`/zh/`、`/assets/*`）响应缺少安全头与自定义缓存头；404 与 `/api/*` 有（这两类会进 Worker）。本地 `wrangler dev` 实测正常，说明配置正确，问题在平台侧部署状态。
+**排查顺序**：
+1. Dashboard → Workers & Pages → `aihcn-website` → **Deployments**：确认最新部署（时间与最近一次 Actions 运行一致）为 Active，未绑定旧版本
+2. `aihcn-website` → **Settings** → Static Assets 区域：确认没有「Assets 优先 / Serve assets directly」类开关被打开（若有，关闭或改为 Worker 优先并保存）
+3. 若仍无效，用兜底方案（见下），或重新绑定自定义域（Settings → Domains → 删除后重新添加 `aihcn.com`）
+**兜底方案（100% 生效，不依赖 Worker）**：在 zone 级加 Transform Rule 修改响应头：
+1. Dashboard → `aihcn.com` → Rules → Transform Rules → Modify Response Header → Create rule
+2. 条件 `All incoming requests`，添加 5 个头：
+   `X-Frame-Options: DENY` / `X-Content-Type-Options: nosniff` / `X-XSS-Protection: 1; mode=block` / `Referrer-Policy: strict-origin-when-cross-origin` / `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+3. 保存后验证（应出现全部安全头）：
+   ```bash
+   curl -s -D - -o /dev/null https://aihcn.com/zh/ | rg -i 'x-frame|x-content|referrer'
+   ```
+
 ### 4. 域名邮箱（可选，免费）
 - [ ] Cloudflare → Email Routing → 添加 `hello@aihcn.com`，转发到你的个人邮箱
 - [ ] 站内所有 `hello@aihcn.com` 即可直接收信
